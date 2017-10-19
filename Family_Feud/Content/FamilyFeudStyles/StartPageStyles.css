@@ -1,0 +1,68 @@
+﻿
+
+/*  Extra Comments/Wants/Needs
+
+    want to look into animations for possible lights and shit/
+    as well as i want have the link fade in and possibly move in like 
+    a wavy motion
+
+*/
+
+h1 { /* may need to be given a class name instead of an h1 element*/
+    font-size: 250%;
+    font-style: italic;
+    text-align:center;
+    /*look up font-strech:*/
+}
+img{
+    margin-top:150px;
+    margin-left:760px;
+}
+
+
+/*Backgrounds:*/
+
+/* DJ Martin wants a blue background so need to make one for that*/
+.BlueBackground {
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 76%, #207cca 97%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 76%,#207cca 97%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%,#2989d8 76%,#207cca 97%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+}
+.BlackBackground {
+    background-color:black;
+}
+.Yell-OrgBackground{
+    background: linear-gradient(yellow, darkorange);
+}
+
+
+/*Texts:*/
+    .ClickToStartBlack {
+    background-color: black;
+    font-weight: bold;
+}
+.Yell-Org-Text {
+    background: -webkit-linear-gradient(yellow,darkorange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    font-size: 72px;
+    font-family: 'Times New Roman';
+
+    /*  The below line is for the blinking animation, not sure if 
+        we will keep it or not but it makes the start page look 
+        cooler for now
+    */
+    animation: blinker 2s linear infinite; /* if we want to speed up or slow down the blink change the number of seconds*/
+}
+@keyframes blinker {
+    50% { opacity: 0;}
+}
+.Red-Org-toRight{/*keeping it here for reference in case we want to use it*/
+    background-image:linear-gradient(to right, red, orange 50%, brown);
+    color:transparent;
+    -webkit-background-clip:text;
+    background-clip:text;
+}

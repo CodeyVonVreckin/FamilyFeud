@@ -1,0 +1,57 @@
+﻿body {
+    background: linear-gradient(yellow, darkorange);
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+.Team1NameDiv{
+    height:100px;
+    width:500px;
+    margin-left:75px;
+    margin-top:100px;
+}
+.TeamNameTxtBox{
+    height:50px;
+    width:300px;
+    margin-top:5px;
+}
+.blueRow {
+    background-color:blue;
+
+}
+.yellowRow{
+    background-color:yellow;
+}
+
+
+.test{
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EFF708', endColorstr='#2556E8');
+    background: -webkit-gradient(linear, left top, left bottom, from(#EFF708), to(#2556E8));
+    background: -moz-linear-gradient(top, #EFF708, #2556E8);
+    background-image: -webkit-gradient linear, left bottom, left bottom, color-stop(0.29, #EFF708), color-stop(0.73, #2556E8);
+}
+
+/*{
+    background-image -webkit-gradient linear, left bottom, left bottom, color-stop(0.29, #EFF708), color-stop(0.73, #2556E8);
+    background-image: -o-linear-gradient(left bottom, #EFF708 29%, #2556E8 73%);
+    background-image: -moz-linear-gradient(left bottom, #EFF708 29%, #2556E8 73%);
+    background-image: -webkit-linear-gradient(left bottom, #EFF708 29%, #2556E8 73%);
+    background-image: -ms-linear-gradient(left bottom, #EFF708 29%, #2556E8 73%);
+    background-image: linear-gradient(to left bottom, #EFF708 29%, #2556E8 73%);
+}*/
+
+.textbox {
+    background: #333;
+    color: #ccc;
+    width: 200px;
+    padding: 6px 15px 6px 35px;
+    border-radius: 20px;
+    box-shadow: 0 1px 0 #ccc inset;
+    transition: 500ms all ease;
+    outline: 0;
+}
+
+.textbox:hover {
+    width: 270px;
+}

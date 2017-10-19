@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--http://localhost:50392/FamilyFeud/FamilyPicker-->
+<html>
+<head>
+    @Styles.Render("~/Content/FamilyPicker")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width" />
+    <title>FamilyPicker</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <h1 style="color:mediumblue; font-size:100px; font-weight:bolder">Family Picker</h1>
+    </div>
+    <div style="text-align:center" class="container">
+        <div class="row">
+            <div style="text-align:left" class="col-md-5">
+                <h2>Team 1</h2>
+                <p><input placeholder="Enter Team Name" class="form-control"/></p>
+                <table  id ="team1Table" class="table table-bordered ">
+                    <tbody>
+                        <tr>
+                            <td>Player 1</td>
+                            <td><input  id="team1P1" placeholder="Enter Player's Name" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                            <td>Player 2</td>
+                            <td><input id="team1P2" placeholder="Enter Player's Name" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                            <td>Player 3</td>
+                            <td><input id="team1P3" placeholder="Enter Player's Name" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                            <td>Player 4</td>
+                            <td><input id="team1P4" placeholder="Enter Player's Name" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                            <td>Player 5</td>
+                            <td><input id="team1P5" placeholder="Enter Player's Name" class="form-control" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div style="text-align:left" class="col-md-offset-7">
+                <h2>Team 2</h2>
+                <p><input placeholder="Enter Team Name" class="form-control"/></p>
+                <table id ="team2Table" class="table table-bordered col-md-5">
+                    <tbody>
+                        <tr>
+                            <td>Player 1</td>
+                            <td><input id="team2P1" placeholder="Enter Player's Name" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                            <td>Player 2</td>
+                            <td><input id="team2P2" placeholder="Enter Player's Name" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                            <td>Player 3</td>
+                            <td><input id="team2P3" placeholder="Enter Player's Name" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                            <td>Player 4</td>
+                            <td><input id="team2P4" placeholder="Enter Player's Name" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                            <td>Player 5</td>
+                            <td><input id="team2P5" placeholder="Enter Player's Name" class="form-control" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    //  appends 5 player rows to both of the team tables
+    for (var i = 0; i < 5; i++){
+        var playerNumber = ["1", "2", "3", "4", "5"];
+        var team1PlayerIds = ["1P1", "1P2", "1P3", "1P4", "1P5"];
+        var team2PlayerIds = ["2P1", "2P2", "2P3", "2P4", "2P5"];
+        var team1PlayerRow =
+            '<tr>' +
+            '<td>Player '+ playerNumber[i] +'</td>' +
+            '<td><input id="team'+ team1PlayerIds[i] +'" placeholder="Enter Player\'s Name" class="form-control" /></td>' +
+            '</tr>';
+        var team2PlayerRow =
+            '<tr>' +
+            '<td>Player ' + playerNumber[i] + '</td>' +
+            '<td><input id="team' + team2PlayerIds[i] + '" placeholder="Enter Player\'s Name" class="form-control" /></td>' +
+            '</tr>';
+        $("#team1Table").append(team1PlayerRow);
+        $("#team2Table").append(team2PlayerRow);
+    }
+
+    //  highlights table row on mouse over
+    $('tr').hover(function () {
+        $(this).toggleClass('.test');
+      
+    });
+</script>

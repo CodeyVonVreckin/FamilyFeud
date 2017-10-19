@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--http://localhost:50392/FamilyFeud/StartPage-->
+<html>
+<head>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/StartPage")
+    @Styles.Render("~/Content/css")
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome To Family Feud</title>
+</head>
+<body class="BlackBackground">
+    <div>
+        <img src="~/Content/Images/Black_FamilyFeudPic.png"/>
+       <h1 class="Yell-Org-Text" style="margin-top:100px;">@Html.ActionLink("Click Here to Start Feud'N", "FamilyPicker", "FamilyFeud")</h1>
+    </div>
+</body>
+</html>
