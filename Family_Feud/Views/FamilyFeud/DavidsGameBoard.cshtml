@@ -138,6 +138,7 @@
 </html>
 <script>
 	$(".lRedXbox").hide();
+	$(".largexContainer").hide();
 	var count = 0;
 
 	$("#sXcontainer").on('click', function () {
@@ -157,7 +158,7 @@
 			$("#smallX3").addClass('redXbox');
 			count++;
 		}		
-	
+		$(".largexContainer").show();
 		DisplayLargeX(count);
 	});
 	var wrongBuzzer = document.createElement('audio');
