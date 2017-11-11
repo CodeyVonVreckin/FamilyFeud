@@ -115,7 +115,7 @@
 				<div class="lRedXbox" id="secondWrong"></div>
 			</div>
 			<div class="LxBox">
-				<div class="lRedXbox" id="thridWrong"></div>
+				<div class="lRedXbox" id="thirdWrong"></div>
 			</div>
 		</section>
 	<section class="buttonBox">
@@ -137,92 +137,115 @@
 </body>
 </html>
 <script>
+    //  hide the box containers that hold the red Xs
 	$(".lRedXbox").hide();
 	$(".largexContainer").hide();
-	var count = 0;
 
+    //  audio variables
+    var wrongBuzzer = document.createElement('audio');
+    var correctBuzzer = document.createElement('audio');
+
+    correctBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-clang.wav');
+    wrongBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-strike.wav');
+    
+    var count = 0; //   used to keep track of the number of wrong answers
+
+    //  ***Click Events
+
+    //  click event for the container that holds the 3 small Xs
 	$("#sXcontainer").on('click', function () {
-
-		if (count == 0) {
+        //  first click 
+        if (count == 0) {
+            //  turns the first X red
 			$("#smallX1").removeClass('grayXbox');
 			$("#smallX1").addClass('redXbox');
 			count++;
-		}
-		else if (count == 1) {
+        }
+        //  second click
+        else if (count == 1) {
+            //  turns the second X red
 			$("#smallX2").removeClass('grayXbox');
 			$("#smallX2").addClass('redXbox');
 			count++;
-		}
-		else  {
+        }
+        //  third click
+        else {
+            //  turns the third X red
 			$("#smallX3").removeClass('grayXbox');
 			$("#smallX3").addClass('redXbox');
 			count++;
-		}		
-		$(".largexContainer").show();
-		DisplayLargeX(count);
-	});
-	var wrongBuzzer = document.createElement('audio');
-	wrongBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-strike.wav');
-	function DisplayLargeX(count) {
-		if (count == 1) {
-			$("#firstWrong").show();
-			wrongBuzzer.play();
+        }		
 
-		}
-		else if (count == 2) {
+        //  shows the container that holds the large Xs
+        //  but leaves the individual Xs hidden so they do
+        //   not display over the game board
+        $(".largexContainer").show();
+        
+		DisplayLargeX(count);
+    });
+
+    //  click event for the answer boxes
+    $(".result").on('click', function () {
+        //  grabs the Id of the click answered box
+        var thisID = $(this).prop('id');
+        var divID = document.getElementById(thisID);
+        //  passes the Id to the flip function
+        Flip(divID);
+
+    });
+
+
+    //  ***Functions
+
+    //  Displays the 3 large Xs in front of the game board
+    //  and hides them after 4 seconds
+    function DisplayLargeX(count) {
+        //  if 1 wrong answer
+        if (count == 1) {
+            //  diplay the 1st large X (left most X)
+            $("#firstWrong").show();            
+        }
+        //  if there are 2 wrong answers
+        else if (count == 2) {
+            //  display the 1st and 2nd large Xs (left most and middle Xs)
+			$("#firstWrong").show();
+			$("#secondWrong").show();			
+        }
+        //  other wise there are 3 wrong answers
+        else {
+            //  display all three large Xs
 			$("#firstWrong").show();
 			$("#secondWrong").show();
-			wrongBuzzer.play();
-		}
-		else {
-			$("#firstWrong").show();
-			$("#secondWrong").show();
-			$("#thridWrong").show();
-			wrongBuzzer.play();
-		}
+			$("#thirdWrong").show();			
+        }
+
+        //  play the wrong answer audio buzzer
+        wrongBuzzer.play();
+
+        //  after 4 seconds the containers that hold the large Xs
+        //  are hidden so players can click the middle most answer 
+        //  boxes
 		setTimeout(function () {
 			$(".lRedXbox").hide()
-		}, 4000);
+        }, 4000);
+
         setTimeout(function () {
             $(".largexContainer").hide()
         }, 4000);
-		//setTimeout(function () {
-		//	$("#Xs").empty();
-		//}, 4000);
 	}
-
-
-	
-	//	one click event for the section
-	// section .on click
-		//	if count = 0 
-		//	light up small x 1
-		// else if count = 1
-		//	lkight up smallk x 2
-		//	 else
-		//	light small x 3
-
-		//	call below function, pass in count
-		//	count ++;
-		// one function for the large Xs
-
-	var correctBuzzer = document.createElement('audio');
-	correctBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-clang.wav');
-
+    //  this function triggers the flip animation for the answer boxes
     function Flip(div) {
+        //  toggles the flipped class to the element whos Id was passed
+        //  into the function
 		$(div).toggleClass('flipped');
-		correctBuzzer.play();
+        //  plays the correct answer audio 
+        correctBuzzer.play();
     }
 
-    $(".result").on('click', function () {
-        var thisID = $(this).prop('id');
-        var divID = document.getElementById(thisID);
-        Flip(divID);
-        Test();
-    });
-    function Test() {
 
-        $.getJSON("../../Content/Questions/Test.json", function (data) {
+    function MakeQuestion() {
+
+        $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
             var alldata = data;            
             var mydata = Object.keys(data);
             var Q = alldata[mydata[0]];
@@ -257,15 +280,5 @@
     //  Shuffle/ randomize list of questions
     //  Change questions
     //  Make question?
-
-
-
-
-
-
-    //var roundTotal = 0;
-    //document.getElementById('result1').onclick = function () {
-    //    $(resultPoints1) += roundTotal;
-    //}
 
 </script>
