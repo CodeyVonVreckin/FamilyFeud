@@ -156,10 +156,17 @@
     <Content Include="Content\FamilyFeudStyles\FamilyPicker.css" />
     <Content Include="Content\FamilyFeudStyles\GameBoard.css" />
     <Content Include="Content\FamilyFeudStyles\StartPageStyles.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\background.jpg" />
+    <Content Include="Content\Images\bigx.png" />
     <Content Include="Content\Images\Black_FamilyFeudPic.png" />
     <Content Include="Content\Images\FamilyFeudPic.jpg" />
+    <Content Include="Content\Images\smallxGray2.png" />
+    <Content Include="Content\Images\smallxRed2.png" />
+    <Content Include="Content\Images\Untitled4.png" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -170,6 +177,11 @@
     </Content>
     <Content Include="Content\Questions\FamilyFeudQuestions.json" />
     <Content Include="Content\Questions\Test.json" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

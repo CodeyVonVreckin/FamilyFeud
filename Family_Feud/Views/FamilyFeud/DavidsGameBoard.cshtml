@@ -11,91 +11,204 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="boardStyle.css">
-    <script src="javascript.js"></script>
 
     <title>Main Family Feud App</title>
 
 </head>
-
 <body class="fullPage">
-    <div class="roundIndicator" id="roundNumber"> Round 3 </div>
-    <div class="roundScoreBox" id="roundScore"> 72 </div>
-    <div class="resultBoard">
-        <section class="container">
-            <div class="result" id="result1" >
-                <div class="frontResult"><p>1</p></div>
-                <div class="backResult">NICE!</div>
-                <div class="pointValue" id="resultPoints1">12</div>
-            </div>
-        </section>
+	<div class="circle"> </div>
+	<section class="smallxContainer" id="sXcontainer">
+		<div class="SxBox">
+			<div class="grayXbox" id="smallX1"> </div>
+			@*<div class="redXbox"> </div>*@  
+		</div>
+		<div class="SxBox">
+			<div class="grayXbox" id="smallX2"> </div>
+			@*<div class="redXbox"> </div>*@
+		</div>
+		<div class="SxBox">
+			<div class="grayXbox" id="smallX3"> </div>
+			@*<div class="redXbox"> </div>*@
+		</div>
+	</section>
+	<div class="roundIndicator" id="roundNumber"> Round 3 </div>
+	<div class="roundScoreBox" id="roundScore"> 72 </div>
+	<div class="team1Container">
+		<div class="team1Name" id="teamName1">Team Martin</div>
+		<div class="team1Total">1200</div>
+	</div>
+	<div class="team2Container">
+		<div class="team2Name" id="teamName2">Team NON Wreckin</div>
+		<div class="team2Total">1</div>
+	</div>
+	<div class="resultBoard">
+		<section class="container">
+			<div class="result" id="result1">
+				<div class="frontResult"><p>1</p></div>
+				<div class="backResult">NICE!</div>
+				<div class="pointValue" id="resultPoints1">12</div>
+			</div>
+		</section>
 
-        <section class="container">
-            <div class="result" id="result2" >
-                <div class="frontResult"><p>2</p></div>
-                <div class="backResult">BLUEBERRY</div>
-                <div class="pointValue" id="resultPoints2">12</div>
-            </div>
-        </section>
+		<section class="container">
+			<div class="result" id="result2">
+				<div class="frontResult"><p>2</p></div>
+				<div class="backResult">BLUEBERRY</div>
+				<div class="pointValue" id="resultPoints2">12</div>
+			</div>
+		</section>
 
-        <section class="container">
-            <div class="result" id="result3" >
-                <div class="frontResult"><p>3</p></div>
-                <div class="backResult">YELLOW</div>
-                <div class="pointValue" id="resultPoints3">12</div>
-            </div>
-        </section>
+		<section class="container">
+			<div class="result" id="result3">
+				<div class="frontResult"><p>3</p></div>
+				<div class="backResult">YELLOW</div>
+				<div class="pointValue" id="resultPoints3">12</div>
+			</div>
+		</section>
 
-        <section class="container">
-            <div class="result" id="result4" >
-                <div class="frontResult"><p>4</p></div>
-                <div class="backResult">MMMMM</div>
-                <div class="pointValue" id="resultPoints4">12</div>
-            </div>
-        </section>
+		<section class="container">
+			<div class="result" id="result4">
+				<div class="frontResult"><p>4</p></div>
+				<div class="backResult">MMMMM</div>
+				<div class="pointValue" id="resultPoints4">12</div>
+			</div>
+		</section>
 
-        <section class="container">
-            <div class="result" id="result5" >
-                <div class="frontResult"><p>5</p></div>
-                <div class="backResult">WHOAHH</div>
-                <div class="pointValue" id="resultPoints5">12</div>
-            </div>
-        </section>
+		<section class="container">
+			<div class="result" id="result5">
+				<div class="frontResult"><p>5</p></div>
+				<div class="backResult">WHOAHH</div>
+				<div class="pointValue" id="resultPoints5">12</div>
+			</div>
+		</section>
 
-        <section class="container">
-            <div class="result" id="result6" >
-                <div class="frontResult"><p>6</p></div>
-                <div class="backResult">NOT TODAY</div>
-                <div class="pointValue" id="resultPoints6">12</div>
-            </div>
-        </section>
+		<section class="container">
+			<div class="result" id="result6">
+				<div class="frontResult"><p>6</p></div>
+				<div class="backResult">NOT TODAY</div>
+				<div class="pointValue" id="resultPoints6">12</div>
+			</div>
+		</section>
 
-        <section class="container">
-            <div class="result" id="result7" >
-                <div class="frontResult"><p>7</p></div>
-                <div class="backResult">SOUR</div>
-                <div class="pointValue" id="resultPoints7">12</div>
-            </div>
-        </section>
+		<section class="container">
+			<div class="result" id="result7">
+				<div class="frontResult"><p>7</p></div>
+				<div class="backResult">SOUR</div>
+				<div class="pointValue" id="resultPoints7">12</div>
+			</div>
+		</section>
 
-        <section class="container">
-            <div class="result" id="result8" >
-                <div class="frontResult"><p>8</p></div>
-                <div class="backResult">COOL</div>
-                <div class="pointValue" id="resultPoints8">12</div>
-            </div>
-        </section>
-
-    </div>
+		<section class="container">
+			<div class="result" id="result8">
+				<div class="backResult">COOL</div>
+				<div class="frontResult"><p>8</p></div>
+				<div class="pointValue" id="resultPoints8">12</div>
+			</div>
+		</section>
+	</div>
+		<section class="largexContainer">
+			<div class="LxBox">
+				<div class="lRedXbox" id="firstWrong"></div>
+			</div>
+			<div class="LxBox">
+				<div class="lRedXbox" id="secondWrong"></div>
+			</div>
+			<div class="LxBox">
+				<div class="lRedXbox" id="thridWrong"></div>
+			</div>
+		</section>
+	<section class="buttonBox">
+		<section class="buttons">
+			<div class="awardTeam1">
+				<button class="btn form-control">+</button>
+			</div>
+			<div class="nextQuestion">
+				<button class="btn form-control">>></button>
+			</div>
+			<div class="awardTeam2">
+				<button class="btn form-control">+</button>
+			</div>
+		</section>
+	</section>
+	<section class="questionBox"> Question could go here maybe?</section>
 
 
 </body>
 </html>
 <script>
+	$(".lRedXbox").hide();
+	var count = 0;
+
+	$("#sXcontainer").on('click', function () {
+
+		if (count == 0) {
+			$("#smallX1").removeClass('grayXbox');
+			$("#smallX1").addClass('redXbox');
+			count++;
+		}
+		else if (count == 1) {
+			$("#smallX2").removeClass('grayXbox');
+			$("#smallX2").addClass('redXbox');
+			count++;
+		}
+		else  {
+			$("#smallX3").removeClass('grayXbox');
+			$("#smallX3").addClass('redXbox');
+			count++;
+		}		
+	
+		DisplayLargeX(count);
+	});
+	var wrongBuzzer = document.createElement('audio');
+	wrongBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-strike.wav');
+	function DisplayLargeX(count) {
+		if (count == 1) {
+			$("#firstWrong").show();
+			wrongBuzzer.play();
+
+		}
+		else if (count == 2) {
+			$("#firstWrong").show();
+			$("#secondWrong").show();
+			wrongBuzzer.play();
+		}
+		else {
+			$("#firstWrong").show();
+			$("#secondWrong").show();
+			$("#thridWrong").show();
+			wrongBuzzer.play();
+		}
+		setTimeout(function () {
+			$(".lRedXbox").hide()
+		}, 4000);
+
+		//setTimeout(function () {
+		//	$("#Xs").empty();
+		//}, 4000);
+	}
+
+
+	
+	//	one click event for the section
+	// section .on click
+		//	if count = 0 
+		//	light up small x 1
+		// else if count = 1
+		//	lkight up smallk x 2
+		//	 else
+		//	light small x 3
+
+		//	call below function, pass in count
+		//	count ++;
+		// one function for the large Xs
+
+	var correctBuzzer = document.createElement('audio');
+	correctBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-clang.wav');
 
     function Flip(div) {
-        $(div).toggleClass('flipped');
+		$(div).toggleClass('flipped');
+		correctBuzzer.play();
     }
 
     $(".result").on('click', function () {

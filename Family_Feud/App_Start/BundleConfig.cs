@@ -37,7 +37,9 @@ namespace Family_Feud
                 "~/Content/FamilyFeudStyles/FamilyPicker.css"));
 
             bundles.Add(new StyleBundle("~/Content/DavidsStyles").Include(
-              "~/Content/FamilyFeudStyles/DavidsGameBoard.css"));
+              "~/Content/FamilyFeudStyles/DavidsGameBoard.css",
+              "~/Content/font-awesome.css"));
+
         }
     }
 }
