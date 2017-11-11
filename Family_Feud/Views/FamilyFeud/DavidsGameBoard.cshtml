@@ -1,0 +1,155 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    @Styles.Render("~/Content/DavidsStyles")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="boardStyle.css">
+    <script src="javascript.js"></script>
+
+    <title>Main Family Feud App</title>
+
+</head>
+
+<body class="fullPage">
+    <div class="roundIndicator" id="roundNumber"> Round 3 </div>
+    <div class="roundScoreBox" id="roundScore"> 72 </div>
+    <div class="resultBoard">
+        <section class="container">
+            <div class="result" id="result1" >
+                <div class="frontResult"><p>1</p></div>
+                <div class="backResult">NICE!</div>
+                <div class="pointValue" id="resultPoints1">12</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="result" id="result2" >
+                <div class="frontResult"><p>2</p></div>
+                <div class="backResult">BLUEBERRY</div>
+                <div class="pointValue" id="resultPoints2">12</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="result" id="result3" >
+                <div class="frontResult"><p>3</p></div>
+                <div class="backResult">YELLOW</div>
+                <div class="pointValue" id="resultPoints3">12</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="result" id="result4" >
+                <div class="frontResult"><p>4</p></div>
+                <div class="backResult">MMMMM</div>
+                <div class="pointValue" id="resultPoints4">12</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="result" id="result5" >
+                <div class="frontResult"><p>5</p></div>
+                <div class="backResult">WHOAHH</div>
+                <div class="pointValue" id="resultPoints5">12</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="result" id="result6" >
+                <div class="frontResult"><p>6</p></div>
+                <div class="backResult">NOT TODAY</div>
+                <div class="pointValue" id="resultPoints6">12</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="result" id="result7" >
+                <div class="frontResult"><p>7</p></div>
+                <div class="backResult">SOUR</div>
+                <div class="pointValue" id="resultPoints7">12</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="result" id="result8" >
+                <div class="frontResult"><p>8</p></div>
+                <div class="backResult">COOL</div>
+                <div class="pointValue" id="resultPoints8">12</div>
+            </div>
+        </section>
+
+    </div>
+
+
+</body>
+</html>
+<script>
+
+    function Flip(div) {
+        $(div).toggleClass('flipped');
+    }
+
+    $(".result").on('click', function () {
+        var thisID = $(this).prop('id');
+        var divID = document.getElementById(thisID);
+        Flip(divID);
+        Test();
+    });
+    function Test() {
+
+        $.getJSON("../../Content/Questions/Test.json", function (data) {
+            var alldata = data;            
+            var mydata = Object.keys(data);
+            var Q = alldata[mydata[0]];
+            var test = Shuffle(mydata);
+            console.log(Q[0][0]);
+            console.log(Q[0][1]);
+
+        //  displays all answers and their point values for the Q (question)
+        // for (var i = 0; i < Q.length; i++){
+        //    console.log(Q[i]);
+        //}
+            //console.log(test);
+        });
+    }
+
+
+
+    function Shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    }
+    //  Functions I still need:
+
+    //  a Get questions data
+    //  Shuffle/ randomize list of questions
+    //  Change questions
+    //  Make question?
+
+
+
+
+
+
+    //var roundTotal = 0;
+    //document.getElementById('result1').onclick = function () {
+    //    $(resultPoints1) += roundTotal;
+    //}
+
+</script>

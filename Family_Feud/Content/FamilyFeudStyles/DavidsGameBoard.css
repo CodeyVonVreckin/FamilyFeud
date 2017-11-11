@@ -1,0 +1,217 @@
+﻿/* defines the overall page */
+.fullPage {
+    position: relative;
+    width: 1000px;
+    height: 1000px;
+    left: 20%;
+    background-image: url("../Images/background.jpg");
+}
+
+    .fullPage .roundIndicator {
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        box-sizing: border-box;
+        margin-top: 6%;
+        display: block;
+        text-align: center;
+        padding-top: 1.5%;
+        font: 22px Clarendon, sans-serif;
+        font-weight: bold;
+        color: white;
+    }
+    /* Class that creates a score box that shows how many points were aquired per round */
+    .fullPage .roundScoreBox {
+        position: relative;
+        height: 100px;
+        width: 180px;
+        box-sizing: border-box;
+        left: 41.5%;
+        border: 10px solid black;
+        border-radius: 12px;
+        display: block;
+        text-align: center;
+        font: 32px Clarendon, sans-serif;
+        font-weight: bold;
+        font-size: 65px;
+        color: white;
+        background: radial-gradient(circle, #3366cc 2%, #000099 80% );
+    }
+
+
+
+
+    /* .resultBoard creates the overall container that holds all of the individual result boxes. */
+    .fullPage .resultBoard {
+        position: relative;
+        width: 1015px;
+        height: 457px;
+        column-count: 2;
+        column-gap: 0px;
+        box-sizing: border-box;
+        margin: 0% 0% 0% 0%;
+        border: 7px solid #282828;
+        border-radius: 7px;
+        background: black;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+
+/* .container is the invisible box that holds the front result box and the back result box. */
+.container {
+    position: relative;
+    width: 100%;
+    height: 110.4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+}
+
+/* .result is the parent class to the front result box and the back result box. 
+This is needed because both the front and back result boxes share a lot of characteristics. */
+.result {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 3px inset white;
+    -webkit-transition: -webkit-transform 0.9s;
+    transition: transform 0.9s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+
+    /* .result div changes the font type within the divs.
+Thinking about tweaking this to make it work better for both sides of the result box. */
+    .result div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font: 32px Clarendon, sans-serif;
+        font-weight: bold;
+        font-size: 50px;
+        color: white;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    /* Allows the frontResult to have a dark blue circle around the number */
+    .result p {
+        width: 45px;
+        height: 45px;
+        margin: 6% auto auto auto;
+        border-radius: 50%;
+        background: linear-gradient(to top, #000066 53%, #000099 81%);
+        text-align: center;
+        font: 32px Impact, sans-serif;
+        color: white;
+    }
+
+
+    /* .frontResult is the child class of the result class */
+    .result .frontResult {
+        box-sizing: border-box;
+        background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
+    }
+
+    /* .backResult is the child class of the result class */
+    .result .backResult {
+        width: 80%;
+        line-height: 200%;
+        background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
+        -webkit-transform: rotateX( 180deg );
+        transform: rotateX( 180deg );
+    }
+
+    .result .pointValue {
+        width: 20%;
+        left: 80%;
+        box-sizing: border-box;
+        line-height: 200%;
+        border: 3px inset white;
+        background: radial-gradient(circle, #0000CD 20%, #000080 70% );
+        -webkit-transform: rotateX( 180deg );
+        transform: rotateX( 180deg );
+    }
+
+    /* .flipped is the child class of the result class.
+It is used to perform the javascript function to flip to the other side of the result box. */
+    .result.flipped {
+        -webkit-transform: rotateX( 180deg );
+        transform: rotateX( 180deg );
+    }
+
+/* id for the total score of the round */
+#roundScore {
+}
+
+/* individual id's for each result box */
+#result1 {
+}
+
+#result2 {
+}
+
+#result3 {
+}
+
+#result4 {
+}
+
+#result5 {
+}
+
+#result6 {
+}
+
+#result7 {
+}
+
+#result8 {
+}
+
+/* individual id's for pointsPerResult */
+#resultPoints1 {
+}
+
+#resultPoints2 {
+}
+
+#resultPoints3 {
+}
+
+#resultPoints4 {
+}
+
+#resultPoints5 {
+}
+
+#resultPoints6 {
+}
+
+#resultPoints7 {
+}
+
+#resultPoints8 {
+}
+
+/* round id either round 1 2 or 3 */
+#roundNumber {
+}
+
+
+/*THINGS THAT ARE STILL NEEDED ON THE MAIN WEBPAGE*/
+/*
+- a box that displays either: 'round 1 , round 2 , or round 3' directly above and far left of the resultBoard.
+- A box that shows total points collected on the round directly above and center of the result board.
+- Two boxes that show the team name of each team directly below on the left and right of the resultBoard.
+	- Highlighted text of the team currently playing the round.
+- Two boxes that show the total points accumulated next to the right of the team name boxes below the resultBoard.
+	- Highlighted text of the team currently playing the round.
+- A better background.
+- X animations that appear when a wrong answer is suggested that shows up in the center of the screen.
+*/

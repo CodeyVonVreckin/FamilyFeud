@@ -21,5 +21,16 @@ namespace Family_Feud.Controllers
         {
             return View();
         }
+        public ActionResult DavidsGameBoard()
+        {            
+            return View();
+        }
+        
+        public ActionResult GetQuestions()
+        {
+            
+            var questions = Url.Action("../Content/Questions/FamilyFeudQuestions.json");
+            return Json(questions, JsonRequestBehavior.AllowGet);
+        }
     }
 }

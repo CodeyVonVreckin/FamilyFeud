@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -151,9 +152,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FamilyFeudStyles\DavidsGameBoard.css" />
     <Content Include="Content\FamilyFeudStyles\FamilyPicker.css" />
     <Content Include="Content\FamilyFeudStyles\GameBoard.css" />
     <Content Include="Content\FamilyFeudStyles\StartPageStyles.css" />
+    <Content Include="Content\Images\background.jpg" />
     <Content Include="Content\Images\Black_FamilyFeudPic.png" />
     <Content Include="Content\Images\FamilyFeudPic.jpg" />
     <Content Include="favicon.ico" />
@@ -165,6 +168,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Questions\FamilyFeudQuestions.json" />
+    <Content Include="Content\Questions\Test.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -193,6 +198,7 @@
     <Content Include="Views\FamilyFeud\FamilyPicker.cshtml" />
     <Content Include="Views\FamilyFeud\GameBoard.cshtml" />
     <Content Include="Views\FamilyFeud\StartPage.cshtml" />
+    <Content Include="Views\FamilyFeud\DavidsGameBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
