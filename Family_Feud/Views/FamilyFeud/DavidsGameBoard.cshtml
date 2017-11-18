@@ -124,7 +124,7 @@
 				<button class="btn form-control">+</button>
 			</div>
 			<div class="nextQuestion">
-				<button class="btn form-control">>></button>
+				<button id="nextQuestionButton" class="btn form-control">>></button>
 			</div>
 			<div class="awardTeam2">
 				<button class="btn form-control">+</button>
@@ -197,6 +197,10 @@
         TotalScore(divID);
 
     });
+    //  click event for the next question button
+    $("#nextQuestionButton").on('click', function () {
+        MakeQuestion();
+    });
 
     
 
@@ -258,11 +262,18 @@
 
         $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
             var alldata = data;            
-            var mydata = Object.keys(data);
-            var Q = alldata[mydata[0]];
-            var test = Shuffle(mydata);
-            console.log(Q[0][0]);
-            console.log(Q[0][1]);
+            var questions = Object.keys(data);
+            //  randomizes the array of questions
+            var shuffledQuestions = Shuffle(questions);
+            //  pulls out the array of answers for the first question in the question array
+            var answers = alldata[questions[0]];
+            var numberOfAnswers = answers.length;
+            console.log(shuffledQuestions[0]);
+            console.log(answers);
+            console.log(numberOfAnswers);
+
+            //console.log(answers[0][0]);
+            //console.log(answers[0][1]);
 
         //  displays all answers and their point values for the Q (question)
         // for (var i = 0; i < Q.length; i++){
