@@ -148,7 +148,10 @@
     correctBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-clang.wav');
     wrongBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-strike.wav');
     
-    var count = 0; //   used to keep track of the number of wrong answers
+    var count = 0; //   used to keep track of the number of wrong 
+
+    // Total Score Variables
+    var total = 0;
 
     //  ***Click Events
 
@@ -191,11 +194,19 @@
         var divID = document.getElementById(thisID);
         //  passes the Id to the flip function
         Flip(divID);
+        TotalScore(divID);
 
     });
 
+    
 
     //  ***Functions
+
+    //Adds the correct score to the round score
+    function TotalScore(addTotal) {
+        var add = addTotal + total;
+        $("#roundScore") = add;
+    }
 
     //  Displays the 3 large Xs in front of the game board
     //  and hides them after 4 seconds
