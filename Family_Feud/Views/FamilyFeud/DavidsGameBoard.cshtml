@@ -32,7 +32,7 @@
 			@*<div class="redXbox"> </div>*@
 		</div>
 	</section>
-	<div class="roundIndicator" id="roundNumber"> Round 3 </div>
+	<div class="roundIndicator" id="roundNumber"> Round 0</div>
 	<div class="roundScoreBox" id="roundScore"> 72 </div>
 	<div class="team1Container">
 		<div class="team1Name" id="teamName1">Team Martin</div>
@@ -45,65 +45,65 @@
 	<div class="resultBoard">
 		<section class="container">
 			<div class="result" id="result1">
-				<div class="frontResult"><p>1</p></div>
-				<div class="backResult">NICE!</div>
-				<div class="pointValue" id="resultPoints1">12</div>
+				<div class="frontResult"><p id="frontResult1"></p></div>
+				<div class="backResult" id="backResult1"></div>
+				<div class="pointValue" id="resultPoints1"></div>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="result" id="result2">
-				<div class="frontResult"><p>2</p></div>
-				<div class="backResult">BLUEBERRY</div>
-				<div class="pointValue" id="resultPoints2">12</div>
+				<div class="frontResult"><p id="frontResult2"></p></div>
+				<div class="backResult" id="backResult2"></div>
+				<div class="pointValue" id="resultPoints2"></div>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="result" id="result3">
-				<div class="frontResult"><p>3</p></div>
-				<div class="backResult">YELLOW</div>
-				<div class="pointValue" id="resultPoints3">12</div>
+				<div class="frontResult"><p id="frontResult3"></p></div>
+				<div class="backResult" id="backResult3"></div>
+				<div class="pointValue" id="resultPoints3"></div>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="result" id="result4">
-				<div class="frontResult"><p>4</p></div>
-				<div class="backResult">MMMMM</div>
-				<div class="pointValue" id="resultPoints4">12</div>
+				<div class="frontResult"><p id="frontResult4"></p></div>
+				<div class="backResult" id="backResult4"></div>
+				<div class="pointValue" id="resultPoints4"></div>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="result" id="result5">
-				<div class="frontResult"><p>5</p></div>
-				<div class="backResult">WHOAHH</div>
-				<div class="pointValue" id="resultPoints5">12</div>
+				<div class="frontResult"><p id="frontResult5"></p></div>
+				<div class="backResult" id="backResult5"></div>
+				<div class="pointValue" id="resultPoints5"></div>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="result" id="result6">
-				<div class="frontResult"><p>6</p></div>
-				<div class="backResult">NOT TODAY</div>
-				<div class="pointValue" id="resultPoints6">12</div>
+				<div class="frontResult"><p id="frontResult6"></p></div>
+				<div class="backResult" id="backResult6"></div>
+				<div class="pointValue" id="resultPoints6"></div>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="result" id="result7">
-				<div class="frontResult"><p>7</p></div>
-				<div class="backResult">SOUR</div>
-				<div class="pointValue" id="resultPoints7">12</div>
+				<div class="frontResult"><p id="frontResult7"></p></div>
+				<div class="backResult" id="backResult7"></div>
+				<div class="pointValue" id="resultPoints7"></div>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="result" id="result8">
-				<div class="backResult">COOL</div>
-				<div class="frontResult"><p>8</p></div>
-				<div class="pointValue" id="resultPoints8">12</div>
+				<div class="frontResult"><p id="frontResult8"></p></div>
+				<div class="backResult" id="backResult8"></div>
+				<div class="pointValue" id="resultPoints8"></div>
 			</div>
 		</section>
 	</div>
@@ -131,7 +131,7 @@
 			</div>
 		</section>
 	</section>
-	<section class="questionBox"> Question could go here maybe?</section>
+	<label class="questionBox">To start, get the Steve of the group to hit the next question button.</label>
 
 
 </body>
@@ -149,6 +149,7 @@
     wrongBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-strike.wav');
     
     var count = 0; //   used to keep track of the number of wrong 
+    var roundCounter = 0; // used to keep track of current round
 
     // Total Score Variables
     var total = 0;
@@ -197,14 +198,86 @@
         TotalScore(divID);
 
     });
+
     //  click event for the next question button
     $("#nextQuestionButton").on('click', function () {
-        MakeQuestion();
+        $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
+            var alldata = data;
+            var questions = Object.keys(data);
+            //  randomizes the array of questions
+            var shuffledQuestions = Shuffle(questions);
+            //  pulls out the array of answers for the first question in the question array
+            var answers = alldata[questions[0]];
+            var numberOfAnswers = answers.length;
+            //console.log(shuffledQuestions[0]);
+            //console.log(answers);
+            //console.log(numberOfAnswers);
+            //replaces text in the questionBox
+            $(".questionBox").text(shuffledQuestions[0]);
+
+            var adjustedNumberAnswers;
+
+            if (numberOfAnswers > 8)
+            {             
+                adjustedNumberAnswers = 8;
+            }
+            else
+            {
+                adjustedNumberAnswers = numberOfAnswers;
+            }
+            for (var i = 0; i < 8; i++) {
+                $("#frontResult" + (i + 1)).removeClass("p");
+                $("#frontResult" + (i + 1)).text('');
+                $("#backResult" + (i + 1)).text('');
+                $("#resultPoints" + (i + 1)).text('');
+                if ($("#result" + (i + 1)).hasClass("flipped")) {
+                    Flip("#result" + (i + 1));
+                }
+
+            }  
+
+            setTimeout(function () {
+                for (var i = 0; i < adjustedNumberAnswers; i++) {
+                    $("#frontResult" + (i + 1)).addClass("p");
+                    $("#frontResult" + (i + 1)).text(i + 1);
+                    $("#backResult" + (i + 1)).text(answers[i][0]);
+                    $("#resultPoints" + (i + 1)).text(answers[i][1]);
+
+                }
+            }, 300);
+            
+        });
+
+        $(".redXbox").addClass("grayXbox");
+        $(".redXbox").removeClass("redXbox");
+        count = 0;
+
+
+        UpdateRound(roundCounter);
+
+
+
     });
 
-    
+
 
     //  ***Functions
+
+    function UpdateRound(roundCount) {
+        if (roundCount == 1) {
+            $("#roundNumber").text('Round 2');
+            roundCounter++;
+        }
+        else if (roundCount == 2) {
+            $("#roundNumber").text('Round 3');
+            roundCounter++;
+        }
+        else {
+            roundCount = 0;
+            $("#roundNumber").text('Round 1');
+            roundCounter++;
+        }
+    }
 
     //Adds the correct score to the round score
     function TotalScore(addTotal) {
@@ -249,29 +322,33 @@
         }, 4000);
 	}
     //  this function triggers the flip animation for the answer boxes
-    function Flip(div) {
+    function Flip(id) {
         //  toggles the flipped class to the element whos Id was passed
         //  into the function
-		$(div).toggleClass('flipped');
+		$(id).toggleClass('flipped');
         //  plays the correct answer audio 
         correctBuzzer.play();
     }
 
+    var shuffledQuestions;
 
     function MakeQuestion() {
-
+        var alldata;
+        var questions;
+        var answers;
+        var numberOfAnswers;
         $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
-            var alldata = data;            
-            var questions = Object.keys(data);
+            alldata = data;            
+            questions = Object.keys(data);
             //  randomizes the array of questions
-            var shuffledQuestions = Shuffle(questions);
+             shuffledQuestions = Shuffle(questions);
             //  pulls out the array of answers for the first question in the question array
-            var answers = alldata[questions[0]];
-            var numberOfAnswers = answers.length;
+            answers = alldata[questions[0]];
+            numberOfAnswers = answers.length;
             console.log(shuffledQuestions[0]);
             console.log(answers);
             console.log(numberOfAnswers);
-
+            
             //console.log(answers[0][0]);
             //console.log(answers[0][1]);
 
@@ -281,6 +358,8 @@
         //}
             //console.log(test);
         });
+        return shuffledQuestions[0];
+
     }
 
 

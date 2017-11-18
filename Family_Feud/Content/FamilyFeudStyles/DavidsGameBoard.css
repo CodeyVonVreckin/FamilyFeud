@@ -200,7 +200,7 @@
 		width: 100%;
 		display: block;
 		text-align: center;
-		font: 32px Clarendon, sans-serif;
+		font: 20px Clarendon, sans-serif;
 		font-weight: bold;
 		font-size: 50px;
 		color: white;
@@ -209,7 +209,7 @@
 	}
 
 	/* Allows the frontResult to have a dark blue circle around the number */
-	.result p {
+	.result .p {
 		width: 45px;
 		height: 45px;
 		box-sizing: border-box;
@@ -236,7 +236,9 @@
 		width: 80%;
 		box-sizing: border-box;
 		border: 3px inset white;
-		font-size: 40px;
+		font-size: 150%;
+        text-align: center;
+        display: flex;
 		line-height: 197%;
 		background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
 		-webkit-transform: rotateX( 180deg );
