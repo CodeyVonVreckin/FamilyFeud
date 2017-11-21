@@ -332,38 +332,6 @@
 
     var shuffledQuestions;
 
-    function MakeQuestion() {
-        var alldata;
-        var questions;
-        var answers;
-        var numberOfAnswers;
-        $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
-            alldata = data;            
-            questions = Object.keys(data);
-            //  randomizes the array of questions
-             shuffledQuestions = Shuffle(questions);
-            //  pulls out the array of answers for the first question in the question array
-            answers = alldata[questions[0]];
-            numberOfAnswers = answers.length;
-            console.log(shuffledQuestions[0]);
-            console.log(answers);
-            console.log(numberOfAnswers);
-            
-            //console.log(answers[0][0]);
-            //console.log(answers[0][1]);
-
-        //  displays all answers and their point values for the Q (question)
-        // for (var i = 0; i < Q.length; i++){
-        //    console.log(Q[i]);
-        //}
-            //console.log(test);
-        });
-        return shuffledQuestions[0];
-
-    }
-
-
-
     function Shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
         while (0 !== currentIndex) {
