@@ -3,146 +3,146 @@
 
 /* defines the overall page */
 .fullPage {
-	position: relative;
-	width: 1600px;
-	height: 900px;
-	box-sizing: border-box;
-	/*^^^ testing take out when done^^^^ */
-	margin-top: 3%;
-	left: 0%;
-	border: 1px none white;
-	/*^^^ testing take out when done^^^^ */
-	/*gradient animated background code*/
-	background: linear-gradient(291deg, #010f7f, #010525, #010f7f);
-	background-size: 600% 600%;
-	-webkit-animation: animBackground 15s ease infinite;
-	-moz-animation: animBackground 15s ease infinite;
-	animation: animBackground 15s ease infinite;
+    position: relative;
+    width: 1600px;
+    height: 900px;
+    box-sizing: border-box;
+    /*^^^ testing take out when done^^^^ */
+    margin-top: 3%;
+    left: 0%;
+    border: 1px none white;
+    /*^^^ testing take out when done^^^^ */
+    /*gradient animated background code*/
+    background: linear-gradient(291deg, #010f7f, #010525, #010f7f);
+    background-size: 600% 600%;
+    -webkit-animation: animBackground 15s ease infinite;
+    -moz-animation: animBackground 15s ease infinite;
+    animation: animBackground 15s ease infinite;
 }
 
 @-webkit-keyframes animBackground {
-	0% {
-		background-position: 0% 50%
-	}
+    0% {
+        background-position: 0% 50%
+    }
 
-	50% {
-		background-position: 100% 30%
-	}
+    50% {
+        background-position: 100% 30%
+    }
 
-	100% {
-		background-position: 0% 50%
-	}
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 @-moz-keyframes animBackground {
-	0% {
-		background-position: 0% 50%
-	}
+    0% {
+        background-position: 0% 50%
+    }
 
-	50% {
-		background-position: 100% 30%
-	}
+    50% {
+        background-position: 100% 30%
+    }
 
-	100% {
-		background-position: 0% 50%
-	}
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 @keyframes animBackground {
-	0% {
-		background-position: 0% 50%
-	}
+    0% {
+        background-position: 0% 50%
+    }
 
-	50% {
-		background-position: 100% 30%
-	}
+    50% {
+        background-position: 100% 30%
+    }
 
-	100% {
-		background-position: 0% 50%
-	}
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 .fullPage .circle {
-	position: absolute;
-	width: 1200px;
-	height: 800px;
-	margin-left: 16%;
-	margin-top: 1%;
-	opacity: 0.65;
-	background-image: url("../Images/Untitled4.png");
+    position: absolute;
+    width: 1200px;
+    height: 800px;
+    margin-left: 16%;
+    margin-top: 1%;
+    opacity: 0.65;
+    background-image: url("../Images/Untitled4.png");
 }
 
 .fullPage .smallxContainer {
-	position: absolute;
-	width: 82px;
-	height: 25.99px;
-	box-sizing: border-box;
-	column-count: 3;
-	column-gap: 4px;
-	display: block;
-	margin: 9.6% 0% 0% 69.5%;
-	padding: 0px 1px 0px 1px;
-	border: 0px solid white;
+    position: absolute;
+    width: 82px;
+    height: 25.99px;
+    box-sizing: border-box;
+    column-count: 3;
+    column-gap: 4px;
+    display: block;
+    margin: 9.6% 0% 0% 69.5%;
+    padding: 0px 1px 0px 1px;
+    border: 0px solid white;
 }
 
 .smallxContainer .SxBox {
-	position: relative;
-	width: 25px;
-	height: 26px;
-	box-sizing: border-box;
-	display: block;
-	border: 1px none red;
+    position: relative;
+    width: 25px;
+    height: 26px;
+    box-sizing: border-box;
+    display: block;
+    border: 1px none red;
 }
 
 .SxBox .redXbox {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	background-image: url("../Images/smallxRed2.png");
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-image: url("../Images/smallxRed2.png");
 }
 
 .SxBox .grayXbox {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 0.8;
-	box-sizing: border-box;
-	background-image: url("../Images/smallxGray2.png");
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    box-sizing: border-box;
+    background-image: url("../Images/smallxGray2.png");
 }
 
 .fullPage .roundIndicator {
-	position: absolute;
-	width: 100px;
-	height: 30px;
-	box-sizing: border-box;
-	margin: 9.5% 0% 0% 25%;
-	padding-top: .1%;
-	border-radius: 7px;
-	background: black;
-	display: block;
-	text-align: center;
-	font: 22px Clarendon, sans-serif;
-	font-weight: bold;
-	color: white;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    box-sizing: border-box;
+    margin: 9.5% 0% 0% 25%;
+    padding-top: .1%;
+    border-radius: 7px;
+    background: black;
+    display: block;
+    text-align: center;
+    font: 22px Clarendon, sans-serif;
+    font-weight: bold;
+    color: white;
 }
 /* Class that creates a score box that shows how many points were aquired per round */
 .fullPage .roundScoreBox {
-	position: relative;
-	height: 100px;
-	width: 180px;
-	box-sizing: border-box;
-	left: 44.5%;
-	top: 6%;
-	border: 5px solid #282828;
-	border-radius: 9px;
-	display: block;
-	text-align: center;
-	font: 75px Clarendon, sans-serif;
-	font-weight: bold;
-	color: white;
-	line-height: 125%;
-	background: radial-gradient(circle, #3366cc 2%, #000099 80% );
+    position: relative;
+    height: 100px;
+    width: 180px;
+    box-sizing: border-box;
+    left: 44.5%;
+    top: 6%;
+    border: 5px solid #282828;
+    border-radius: 9px;
+    display: block;
+    text-align: center;
+    font: 75px Clarendon, sans-serif;
+    font-weight: bold;
+    color: white;
+    line-height: 125%;
+    background: radial-gradient(circle, #3366cc 2%, #000099 80% );
 }
 
 
@@ -150,315 +150,315 @@
 
 /* .resultBoard creates the overall container that holds all of the individual result boxes. */
 .fullPage .resultBoard {
-	position: relative;
-	width: 800px;
-	height: 358px;
-	column-count: 2;
-	column-gap: 0px;
-	box-sizing: border-box;
-	margin: 5% 0% 0% 25%;
-	border: 7px solid #282828;
-	border-radius: 7px;
-	background: black;
-	-webkit-perspective: 1000px;
-	perspective: 1000px;
+    position: relative;
+    width: 800px;
+    height: 358px;
+    column-count: 2;
+    column-gap: 0px;
+    box-sizing: border-box;
+    margin: 5% 0% 0% 25%;
+    border: 7px solid #282828;
+    border-radius: 7px;
+    background: black;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
 }
 
 /* .container is the invisible box that holds the front result box and the back result box. */
 .container {
-	position: relative;
-	width: 100%;
-	height: 25%;
-	box-sizing: border-box;
-	border: 2px solid black;
-	-webkit-perspective: 800px;
-	perspective: 800px;
+    position: relative;
+    width: 100%;
+    height: 25%;
+    box-sizing: border-box;
+    border: 2px solid black;
+    -webkit-perspective: 800px;
+    perspective: 800px;
 }
 
 /* .result is the parent class to the front result box and the back result box. 
 			This is needed because both the front and back result boxes share a lot of characteristics. */
 .result {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	border: 3px inset white;
-	-webkit-transition: -webkit-transform 0.9s;
-	transition: transform 0.9s;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transform-origin: 50% 50%;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 3px inset white;
+    -webkit-transition: -webkit-transform 0.9s;
+    transition: transform 0.9s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-	/* .result div changes the font type within the divs.
+    /* .result div changes the font type within the divs.
 				Thinking about tweaking this to make it work better for both sides of the result box. */
-	.result div {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		display: block;
-		text-align: center;
-		font: 20px Clarendon, sans-serif;
-		font-weight: bold;
-		font-size: 50px;
-		color: white;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
-	}
-
-	/* Allows the frontResult to have a dark blue circle around the number */
-	.result .p {
-		width: 45px;
-		height: 45px;
-		box-sizing: border-box;
-		margin: 5% auto auto auto;
-		padding-top: 1%;
-		line-height: 120%;
-		border-radius: 50%;
-		background: linear-gradient(to top, #000066 53%, #000099 81%);
-		text-align: center;
-		font: 30px Clarendon, sans-serif;
-		font-weight: bold;
-		color: white;
-	}
-
-
-	/* .frontResult is the child class of the result class */
-	.result .frontResult {
-		box-sizing: border-box;
-		background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
-	}
-
-	/* .backResult is the child class of the result class */
-	.result .backResult {
-		width: 80%;
-		box-sizing: border-box;
-		border: 3px inset white;
-		font-size: 150%;
+    .result div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: block;
         text-align: center;
-        display: flex;
-		line-height: 197%;
-		background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
-		-webkit-transform: rotateX( 180deg );
-		transform: rotateX( 180deg );
-	}
+        font: 20px Clarendon, sans-serif;
+        font-weight: bold;
+        font-size: 50px;
+        color: white;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
 
-	.result .pointValue {
-		width: 20%;
-		left: 80%;
-		box-sizing: border-box;
-		line-height: 152%;
-		border: 3px inset white;
-		background: radial-gradient(circle, #0000CD 20%, #000080 70% );
-		-webkit-transform: rotateX( 180deg );
-		transform: rotateX( 180deg );
-	}
+    /* Allows the frontResult to have a dark blue circle around the number */
+    .result .p {
+        width: 45px;
+        height: 45px;
+        box-sizing: border-box;
+        margin: 5% auto auto auto;
+        padding-top: 1%;
+        line-height: 120%;
+        border-radius: 50%;
+        background: linear-gradient(to top, #000066 53%, #000099 81%);
+        text-align: center;
+        font: 30px Clarendon, sans-serif;
+        font-weight: bold;
+        color: white;
+    }
 
-	/* .flipped is the child class of the result class.
+
+    /* .frontResult is the child class of the result class */
+    .result .frontResult {
+        box-sizing: border-box;
+        background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
+    }
+
+    /* .backResult is the child class of the result class */
+    .result .backResult {
+        width: 80%;
+        box-sizing: border-box;
+        border: 3px inset white;
+        font-size: 150%;
+        text-align: center;
+        display: block;
+        line-height: 330%;
+        background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
+        -webkit-transform: rotateX( 180deg );
+        transform: rotateX( 180deg );
+    }
+
+    .result .pointValue {
+        width: 20%;
+        left: 80%;
+        box-sizing: border-box;
+        line-height: 150%;
+        border: 3px inset white;
+        background: radial-gradient(circle, #0000CD 20%, #000080 70% );
+        -webkit-transform: rotateX( 180deg );
+        transform: rotateX( 180deg );
+    }
+
+    /* .flipped is the child class of the result class.
 					It is used to perform the javascript function to flip to the other side of the result box. */
-	.result.flipped {
-		-webkit-transform: rotateX( 180deg );
-		transform: rotateX( 180deg );
-	}
+    .result.flipped {
+        -webkit-transform: rotateX( 180deg );
+        transform: rotateX( 180deg );
+    }
 
 .fullPage .buttonBox {
-	position: absolute;
-	width: 400px;
-	height: 50px;
-	box-sizing: border-box;
-	margin: 1.5% 0% 0% 37.5%;
-	border: 1px none white;
+    position: absolute;
+    width: 400px;
+    height: 50px;
+    box-sizing: border-box;
+    margin: 1.5% 0% 0% 37.5%;
+    border: 1px none white;
 }
 
 .buttonBox .buttons {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .buttons .awardTeam1 {
-	position: absolute;
-	width: 33.33%;
-	height: 100%;
-	box-sizing: border-box;
-	padding-top: 3%;
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 3%;
 }
 
 .buttons .nextQuestion {
-	position: absolute;
-	width: 33.33%;
-	height: 100%;
-	box-sizing: border-box;
-	margin-left: 33.33%;
-	padding-top: 3%;
-	display: block;
-	text-align: center;
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-left: 33.33%;
+    padding-top: 3%;
+    display: block;
+    text-align: center;
 }
 
 .buttons .awardTeam2 {
-	position: absolute;
-	width: 33.33%;
-	height: 100%;
-	box-sizing: border-box;
-	margin-left: 66.66%;
-	padding-top: 3%;
-	display: block;
-	text-align: right;
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-left: 66.66%;
+    padding-top: 3%;
+    display: block;
+    text-align: right;
 }
 
 .fullPage .largexContainer {
-	position: absolute;
-	width: 779px;
-	height: 252px;
-	box-sizing: border-box;
-	column-count: 3;
-	column-gap: 6px;
-	display: block;
-	margin: -20% 0% 0% 25.75%;
-	padding: 0px 1px 0px 1px;
+    position: absolute;
+    width: 779px;
+    height: 252px;
+    box-sizing: border-box;
+    column-count: 3;
+    column-gap: 6px;
+    display: block;
+    margin: -20% 0% 0% 25.75%;
+    padding: 0px 1px 0px 1px;
 }
 
 .largexContainer .LxBox {
-	position: relative;
-	width: 252px;
-	height: 254px;
-	box-sizing: border-box;
+    position: relative;
+    width: 252px;
+    height: 254px;
+    box-sizing: border-box;
 }
 
 .LxBox .lRedXbox {
-	position: absolute;
-	width: 100%;
-	height: 98%;
-	box-sizing: border-box;
-	background-image: url("../Images/bigx.png");
+    position: absolute;
+    width: 100%;
+    height: 98%;
+    box-sizing: border-box;
+    background-image: url("../Images/bigx.png");
 }
 
 
 .fullPage .team1Container {
-	position: absolute;
-	width: 350px;
-	height: 160px;
-	box-sizing: border-box;
-	margin: 28% 0% 0% 5%;
-	font: white;
-	text-align: center;
+    position: absolute;
+    width: 350px;
+    height: 160px;
+    box-sizing: border-box;
+    margin: 28% 0% 0% 5%;
+    font: white;
+    text-align: center;
 }
 
 .team1Container div {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	display: block;
-	text-align: center;
-	font: 22px Clarendon, sans-serif;
-	font-weight: bold;
-	font-size: 32px;
-	color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font: 22px Clarendon, sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: white;
 }
 
 .team1Container .team1Name {
-	position: absolute;
-	width: 100%;
-	height: 40%;
-	top: 56%;
-	box-sizing: border-box;
-	margin: 1% 0% 0% 0%;
-	line-height: 200%;
-	border-radius: 8px;
-	background: black;
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    top: 56%;
+    box-sizing: border-box;
+    margin: 1% 0% 0% 0%;
+    line-height: 200%;
+    border-radius: 8px;
+    background: black;
 }
 
 .team1Container .team1Total {
-	position: absolute;
-	height: 90px;
-	width: 140px;
-	box-sizing: border-box;
-	left: 30%;
-	border: 5px solid #282828;
-	border-radius: 9px;
-	display: block;
-	text-align: center;
-	font: 32px Clarendon, sans-serif;
-	font-weight: bold;
-	font-size: 50px;
-	line-height: 150%;
-	color: white;
-	background: radial-gradient(circle, #3366cc 2%, #000099 80% );
+    position: absolute;
+    height: 90px;
+    width: 140px;
+    box-sizing: border-box;
+    left: 30%;
+    border: 5px solid #282828;
+    border-radius: 9px;
+    display: block;
+    text-align: center;
+    font: 32px Clarendon, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 150%;
+    color: white;
+    background: radial-gradient(circle, #3366cc 2%, #000099 80% );
 }
 
 
 
 .fullPage .team2Container {
-	position: absolute;
-	width: 350px;
-	height: 160px;
-	box-sizing: border-box;
-	margin: 28% 0% 0% 73%;
-	font: white;
-	text-align: center;
+    position: absolute;
+    width: 350px;
+    height: 160px;
+    box-sizing: border-box;
+    margin: 28% 0% 0% 73%;
+    font: white;
+    text-align: center;
 }
 
 .team2Container div {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	display: block;
-	text-align: center;
-	font: 32px Clarendon, sans-serif;
-	font-weight: bold;
-	color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font: 32px Clarendon, sans-serif;
+    font-weight: bold;
+    color: white;
 }
 
 .team2Container .team2Name {
-	position: absolute;
-	width: 100%;
-	height: 40%;
-	top: 56%;
-	box-sizing: border-box;
-	margin: 1% 0% 0% 0%;
-	line-height: 200%;
-	border-radius: 8px;
-	background: black;
-	opacity: 0.8;
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    top: 56%;
+    box-sizing: border-box;
+    margin: 1% 0% 0% 0%;
+    line-height: 200%;
+    border-radius: 8px;
+    background: black;
+    opacity: 0.8;
 }
 
 .team2Container .team2Total {
-	position: absolute;
-	height: 90px;
-	width: 140px;
-	box-sizing: border-box;
-	left: 30%;
-	border: 5px solid #282828;
-	border-radius: 9px;
-	display: block;
-	text-align: center;
-	font: 32px Clarendon, sans-serif;
-	font-weight: bold;
-	font-size: 50px;
-	line-height: 150%;
-	color: white;
-	background: radial-gradient(circle, #3366cc 2%, #000099 80% );
+    position: absolute;
+    height: 90px;
+    width: 140px;
+    box-sizing: border-box;
+    left: 30%;
+    border: 5px solid #282828;
+    border-radius: 9px;
+    display: block;
+    text-align: center;
+    font: 32px Clarendon, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 150%;
+    color: white;
+    background: radial-gradient(circle, #3366cc 2%, #000099 80% );
 }
 
 
 /* Possible question box option here below */
 .fullPage .questionBox {
-	position: absolute;
-	width: 1200px;
-	height: 40px;
-	margin: 18% 0% 0% 12%;
-	line-height: 200%;
-	border-radius: 8px;
-	background: black;
-	opacity: 0.8;
-	display: block;
-	text-align: center;
-	font: 32px Clarendon, sans-serif;
-	font-weight: bold;
-	color: white;
+    position: absolute;
+    width: 1200px;
+    height: 40px;
+    margin: 18% 0% 0% 12%;
+    line-height: 200%;
+    border-radius: 8px;
+    background: black;
+    opacity: 0.8;
+    display: block;
+    text-align: center;
+    font: 32px Clarendon, sans-serif;
+    font-weight: bold;
+    color: white;
 }
 /* id for the total score of the round */
 #roundScore {
