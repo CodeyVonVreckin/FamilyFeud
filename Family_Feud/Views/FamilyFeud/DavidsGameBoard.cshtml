@@ -198,69 +198,50 @@
         var divID = document.getElementById(thisID);
         //  passes the Id to the flip function
         Flip(divID);
-
-
-        //$("#roundScore").text(function () {
-        //    total = (+$("#roundScore").text());
-        //    var points = $(".pointValue").text();
-        //    return (+total) + (+points);
-
-        //});
-
-
+        // wapping mess that adds the total score for the round.
         $("#roundScore").text(function () {
-            for (var i = 0; i < 8; i++) {
-                if ($(".result").hasClass("flipped")) {
-
-                    var points = $("#resultPoints" + (i + 1)).text();
-                    var total = (+$("#roundScore").text());
+            for (i = 0; i < 9; i++) {
+               //  variable that stores the round total
+                var total = (+$("#roundScore").text());
+                if ($("#result" + (i)).is(divID)) {
+                    //  if statements below factor in the multiplicity of the round
+                    if ($("#roundNumber").text() == "Round 2") {
+                        // variable gets the point value associated with the correct answer
+                        var points = ($("#resultPoints" + i).text() * 2);
+                    }
+                    else if ($("#roundNumber").text() == "Round 3") {
+                        var points = ($("#resultPoints" + i).text() * 3);
+                    }
+                    else {
+                        var points = $("#resultPoints" + i).text();
+                    }
+                    
+                    return (+points) + (+total);
                 }
-                return (+points) + (+total);
-
             }
-
-
         });
-        //});
-        //$("#roundScore").text(function () {
-        //    for (var i = 0; i < 8; i++) {
-        //        if ($("#result" + (1 + i)).hasClass("flipped")) {
-        //            var points = $("#resultPoints" + (i + 1)).val();
-        //            total = $("#roundScore").val();
-        //            var totalPoints = points + total;
-        //            return totalPoints;
-        //        }
-        //    }
-        //});
+    });
 
-        //    for (var i = 0; i < 8; i++) {
-        //        if ($("#result" + (1 + i)).hasClass("flipped")) {
-        //            var TotalPoints = $("#roundScore").text();
-        //            var points = $("#resultPoints" + (i + 1)).text();
-        //            var TotalPointsDisplayed = $("#roundScore").text();
-        //            TotalPointsDisplayed = TotalPoints + points;
-        //          return  $(TotalPointsDisplayed);
-        //        }
-        //    }
-        //});
 
-    });  //belongs to the function above all of the trial functions
-
-    //$(".pointValue").on('click', function () {
-    //    var thisID = $(this).prop('id');
-    //    var divID = document.getElementById(thisID);
-    //    var total = (+$("#roundScore").text());
-    //    var points = $("divID").text();
-    //    return (+total) + (+points);
-    //});
 
 
 
     //  click event for the team 1 score addition
     $("#team1Button").on('click', function () {
-        var team1Total = $("#teamTotal1").text();
-        return (+team1Total.text()) + (+total.text());
+        var team1Total = $("#teamTotal1");
+        total = (+$("#roundScore").text()) + (+$("#teamTotal1").text());
+        team1Total = $("#teamTotal1").text(total);
+       // console.log(total);
+        return $(team1Total).text();
+    });
 
+    //  click event for the team 2 score addition
+    $("#team2Button").on('click', function () {
+        var team2Total = $("#teamTotal2");
+        total = (+$("#roundScore").text()) + (+$("#teamTotal2").text());
+        team1Total = $("#teamTotal2").text(total);
+        // console.log(total);
+        return $(team2Total).text();
     });
 
     //  click event for the next question button
