@@ -156,6 +156,7 @@
     <Content Include="Content\FamilyFeudStyles\FamilyPicker.css" />
     <Content Include="Content\FamilyFeudStyles\GameBoard.css" />
     <Content Include="Content\FamilyFeudStyles\StartPageStyles.css" />
+    <Content Include="Content\FamilyFeudStyles\SteveScreenc2.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\background.jpg" />
@@ -211,6 +212,7 @@
     <Content Include="Views\FamilyFeud\GameBoard.cshtml" />
     <Content Include="Views\FamilyFeud\StartPage.cshtml" />
     <Content Include="Views\FamilyFeud\DavidsGameBoard.cshtml" />
+    <Content Include="Views\FamilyFeud\SteveScreen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,175 @@
+.fullPage {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	margin: 0% 0% 0% 0%;
+	box-sizing: border-box;
+	background-color: #000066;
+}
+
+.fullPage .question {
+	width: 94vw;
+	height: 10vh;
+	position: absolute;
+	box-sizing: border-box;
+	border-radius: 8px;
+	
+	margin-top: 1.5vh;
+	margin-left: 3vw;
+	padding: .5vh;
+	
+	background-color: black;s
+	opacity: 0.8;
+	
+	font: 2.5vh Clarendon, sans-serif;
+	color: white;
+	display: block;
+	
+}
+
+.fullPage .answersContainer {
+	width: 100vw;
+	height: 71.5vh;
+	position: absolute;
+	box-sizing: border-box;
+	border: .1vw none white;
+	
+	margin-top: 12vh;
+	padding-left: .5vh;
+}
+	.answersContainer .answersBox {
+		width: 98vw;
+		height: 8.5vh;
+		position: relative;
+		box-sizing: border-box;
+		border-bottom: 2px none white;
+
+		margin-bottom: .5vh;
+		
+
+	}
+		.answersBox .aButtonsBox {
+			width: 15vw;
+			height: 8vh;
+			position: absolute;
+			box-sizing: border-box;
+			margin-top: .2vh;
+			border: .1vw none red;
+			
+		}
+			.aButtonsBox .aButtons {
+				width: 13vw;
+				height: 7vh;
+				box-sizing: border-box;
+				position: absolute;
+				border-radius: 8px;
+				border: .1vw none yellow;
+				background-color: #F8F8FF;
+				margin-top: 3.8%;
+				margin-left: 3.5%;
+				
+				font: 3vh Clarendon, sans-serif;
+			}
+			
+			.aButtonsBox .answers {
+				width: 75vw;
+				height: 8vh;
+				box-sizing: border-box;
+				position: absolute;
+				background-color: #00004d;
+				padding-left: 2vw;
+				margin-left: 15vw;
+				border-radius: 8px;
+				
+				font: 3vh Clarendon, sans-serif;
+				color: white;
+				font-style: bold;
+				line-height: 8.5vh;
+				
+				
+			}
+.fullPage .otherButtonsBox {
+	width: 100vw;
+	height: 11vh;
+	position: absolute;
+	
+	border: 1px none yellow;
+	
+	margin-top: 85vh;
+}
+	.otherButtonsBox .wrongButton{
+		width: 22vw;
+		height: 11vh;
+		position: absolute;
+		margin-left: 2vw;
+		border-radius: 8px;
+		border: .1vw solid white;
+		background-color: red;
+		font: 2vh Clarendon, sans-serif;
+		color: white;
+		font-weight: bold;
+		text-align: center;		
+	}
+	.otherButtonsBox .addToTeam1{
+		width: 22vw;
+		height: 11vh;
+		position: absolute;
+		margin-left: 26.4vw;
+		border-radius: 8px;
+		background-color: gray;
+		border: .1vw solid white;
+		font: 2vh Clarendon, sans-serif;
+		color: white;
+		font-weight: bold;
+		text-align: center;		
+	}
+		.otherButtonsBox .addToTeam2{
+		width: 22vw;
+		height: 11vh;
+		position: absolute;
+		margin-left: 51vw;
+		border-radius: 8px;
+		background-color: gray;
+		border: .1vw solid white;
+		font: 2vh Clarendon, sans-serif;
+		color: white;
+		font-weight: bold;
+		text-align: center;		
+	}
+		.otherButtonsBox .nextQuestion{
+		width: 22vw;
+		height: 11vh;
+		position: absolute;
+		margin-left: 76vw;
+		border-radius: 8px;
+		background-color: green;
+		border: .1vw solid white;
+		font: 2vh Clarendon, sans-serif;
+		color: white;
+		font-weight: bold;
+		text-align: center;		
+	}	
+	
+.fullPage .footer {
+	width: 100vw;
+	height: 3vh;
+	position: absolute;
+	box-sizing: border-box;
+	border-top: .5px dashed white;
+	margin-top: 97vh;
+	
+	font: 1.8vh Clarendon, sans-serif;
+	color: white;
+	font-style: italic;
+	text-align: center;
+	line-height: 3vh;
+}
+	</style>
+
+
+	
+	
+	
+	
+
+	

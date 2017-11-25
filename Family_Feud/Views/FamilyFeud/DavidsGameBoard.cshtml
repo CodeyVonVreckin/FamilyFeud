@@ -177,7 +177,7 @@
         }
         //  third click
         else {
-            //  turns the third X red
+            //  turns the t xhird X red
             $("#smallX3").removeClass('grayXbox');
             $("#smallX3").addClass('redXbox');
             count++;
@@ -200,7 +200,7 @@
         Flip(divID);
         // wapping mess that adds the total score for the round.
         $("#roundScore").text(function () {
-            for (i = 0; i < 9; i++) {
+            for (i = 1; i < 8; i++) {
                //  variable that stores the round total
                 var total = (+$("#roundScore").text());
                 if ($("#result" + (i)).is(divID)) {

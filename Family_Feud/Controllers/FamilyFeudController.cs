@@ -25,7 +25,12 @@ namespace Family_Feud.Controllers
         {            
             return View();
         }
-        
+
+        public ActionResult SteveScreen()
+        {
+            return View();
+        }
+
         public ActionResult GetQuestions()
         {
             

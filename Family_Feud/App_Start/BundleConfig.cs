@@ -40,6 +40,9 @@ namespace Family_Feud
               "~/Content/FamilyFeudStyles/DavidsGameBoard.css",
               "~/Content/font-awesome.css"));
 
+            bundles.Add(new StyleBundle("~/Content/StevesStyles").Include(
+                "~/Content/FamilyFeudStyles/SteveScreenc2.css"));
+
         }
     }
 }
