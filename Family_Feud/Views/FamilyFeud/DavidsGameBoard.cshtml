@@ -148,7 +148,7 @@
     correctBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-clang.wav');
     wrongBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-strike.wav');
 
-    var count = 0; //   used to keep track of the number of wrong
+    var xCount = 0; //   used to keep track of the number of wrong
     var roundCounter = 0; // used to keep track of current round
 
     // Total Score Variables
@@ -162,25 +162,25 @@
     //  click event for the container that holds the 3 small Xs
     $("#sXcontainer").on('click', function () {
         //  first click
-        if (count == 0) {
+        if (xCount == 0) {
             //  turns the first X red
             $("#smallX1").removeClass('grayXbox');
             $("#smallX1").addClass('redXbox');
-            count++;
+            xCount++;
         }
         //  second click
-        else if (count == 1) {
+        else if (xCount == 1) {
             //  turns the second X red
             $("#smallX2").removeClass('grayXbox');
             $("#smallX2").addClass('redXbox');
-            count++;
+            xCount++;
         }
         //  third click
         else {
             //  turns the t xhird X red
             $("#smallX3").removeClass('grayXbox');
             $("#smallX3").addClass('redXbox');
-            count++;
+            xCount++;
         }
 
         //  shows the container that holds the large Xs
@@ -188,39 +188,63 @@
         //   not display over the game board
         $(".largexContainer").show();
 
-        DisplayLargeX(count);
+        DisplayLargeX(xCount);
+    });
+
+    // added click event to represent when a team misses a question in the beginning showdown.
+    // it shows 1 x in the middle of the screen
+    $(".questionBox").on('click', function () {
+        var counter = 4;
+        $(".largexContainer").show();
+        DisplayLargeX(counter);
     });
 
     //  click event for the answer boxes
-    $(".result").on('click', function () {
-        //  grabs the Id of the click answered box
-        var thisID = $(this).prop('id');
-        var divID = document.getElementById(thisID);
-        //  passes the Id to the flip function
-        Flip(divID);
-        // wapping mess that adds the total score for the round.
-        $("#roundScore").text(function () {
-            for (i = 1; i < 8; i++) {
-               //  variable that stores the round total
-                var total = (+$("#roundScore").text());
-                if ($("#result" + (i)).is(divID)) {
-                    //  if statements below factor in the multiplicity of the round
-                    if ($("#roundNumber").text() == "Round 2") {
-                        // variable gets the point value associated with the correct answer
-                        var points = ($("#resultPoints" + i).text() * 2);
-                    }
-                    else if ($("#roundNumber").text() == "Round 3") {
-                        var points = ($("#resultPoints" + i).text() * 3);
-                    }
-                    else {
-                        var points = $("#resultPoints" + i).text();
-                    }
-                    
-                    return (+points) + (+total);
+        $(".result").on('click', function () {
+            //  grabs the Id of the click answered box
+            var thisID = $(this).prop('id');
+            var divID = document.getElementById(thisID);
+
+            // if statement prevents answer that has already been flipped to be re-flipped
+            if ($(divID).hasClass("flipped")) {
+
+            }
+            else {
+                //  passes the Id to the flip function
+                Flip(divID);
+
+
+
+                // allows answers to be flipped at the end of round without adding points to the total round score
+                // if all x's have been used
+                if (xCount <= 3) {
+                    // wapping mess that adds the total score for the round.
+                    $("#roundScore").text(function () {
+                        for (i = 1; i < 9; i++) {
+                            //  variable that stores the round total
+                            var total = (+$("#roundScore").text());
+                            if ($("#result" + (i)).is(divID)) {
+                                //  if statements below factor in the multiplicity of the round
+                                if ($("#roundNumber").text() == "Round 2") {
+                                    // variable gets the point value associated with the correct answer
+                                    var points = ($("#resultPoints" + i).text() * 2);
+                                }
+                                else if ($("#roundNumber").text() == "Round 3") {
+                                    var points = ($("#resultPoints" + i).text() * 3);
+                                }
+                                else {
+                                    var points = $("#resultPoints" + i).text();
+                                }
+
+                                return (+points) + (+total);
+                            }
+                        }
+                    });
                 }
             }
         });
-    });
+    
+
 
 
 
@@ -274,7 +298,7 @@
                 $("#backResult" + (i + 1)).text('');
                 $("#resultPoints" + (i + 1)).text('');
                 if ($("#result" + (i + 1)).hasClass("flipped")) {
-                    Flip2("#result" + (i + 1));
+                    FlipNoDing("#result" + (i + 1));
                 }
 
             }
@@ -295,7 +319,8 @@
 
         $(".redXbox").addClass("grayXbox");
         $(".redXbox").removeClass("redXbox");
-        count = 0;
+        //resets the x counter for new round
+       xCount = 0;
 
 
         UpdateRound(roundCounter);
@@ -367,9 +392,6 @@
         }, 4000);
     }
 
-    function Add(ids) {
-        $(ids).text() + (+total);
-    }
 
     //  this function triggers the flip animation for the answer boxes
     function Flip(id) {
@@ -381,7 +403,7 @@
     }
     // this function is the same as Flip without the correct buzzer sound
     //for the next question click event.
-    function Flip2(id) {
+    function FlipNoDing(id) {
         $(id).toggleClass('flipped');
     }
 
@@ -437,4 +459,9 @@
     //  Change questions
     //  Make question?
 
+
+    // - made an on-click event to display a centered large X when the question box is clicked for the beginning showdown.
+    // - added if statement to prevent flipped answers to add to the total roundscore after all attempts have been used.
+    // - added if statement to not allow answers that have been flipped to be re-flipped due to causing the result round to be wrong.
+    // - changed Flip2 to FlipNoDing.
 </script>
