@@ -1,4 +1,4 @@
-﻿
+﻿@*@model Family_Feud.Models.PlayerInfo*@
 @{
     Layout = null;
 }
@@ -35,11 +35,11 @@
     <div class="roundIndicator" id="roundNumber"> Round 0</div>
     <div class="roundScoreBox" id="roundScore"></div>
     <div class="team1Container">
-        <div class="team1Name" id="teamName1">Team Martin</div>
+        <div class="team1Name" id="teamName1">@Model.TeamOne</div>
         <div class="team1Total" id="teamTotal1">0</div>
     </div>
     <div class="team2Container">
-        <div class="team2Name" id="teamName2">Team NON Wreckin</div>
+        <div class="team2Name" id="teamName2">@Model.TeamTwo</div>
         <div class="team2Total" id="teamTotal2">0</div>
     </div>
     <div class="resultBoard">
