@@ -47,31 +47,37 @@
         <h1 style="color:yellow; font-size:100px; font-weight:bolder">Friend Picker</h1>
         <h6 style="color:yellow ">Not Family</h6>
     </div>
-    @using (Html.BeginForm("StartGame", "FamilyFeud", FormMethod.Post))
-    {
         <div style="text-align:center; width:65%;" class="container">
             <div class="row">
                 <div style="text-align:left" class="col-md-5">
                     <h1 style="color:yellow">Team 1</h1>
-                    <p><input placeholder="Enter Team Name" name="team1" class="form-control" style="height:100px; width:2000px;"/></p>
+                    <p><input placeholder="Enter Team Name" id="team1" class="form-control" style="height:100px; width:2000px;"/></p>
                     @*<table  id ="team1Table" class="table table-bordered ">
                     </table>*@
                 </div>
                 <div style="text-align:left" class="col-md-offset-7">
                     <h1 style="color:yellow">Team 2</h1>
-                    <p><input placeholder="Enter Team Name" name="team2" class="form-control" style="height:100px; width:2000px; font-size:30px;"/></p>
+                    <p><input placeholder="Enter Team Name" id="team2" class="form-control" style="height:100px; width:2000px; font-size:30px;"/></p>
                     @*<table id ="team2Table" class="table table-bordered col-md-5">                    
                     </table>*@
                 </div>
             </div>
             <div class="row">
-                <input type="submit" value="Start Game" id="startButton" class="btn btn-primary" />
+                <button id="startButton" class="btn btn-primary" >Start Game</button>
             </div>
-        </div>
-      }
+        </div>      
 </body>
 </html>
 <script>
+
+    $("#startButton").on('click', function () {
+        var team1 = $("#team1").val();
+        var team2 = $("#team2").val();
+
+        window.location.href = "/FamilyFeud/DavidsGameBoard?team1=" + team1 + "&team2=" + team2;
+
+    });
+
     /*
  * CircleType 0.34
  * Peter Hrynkow

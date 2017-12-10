@@ -28,7 +28,7 @@ namespace Family_Feud.Controllers
             teamNames.TeamOne = team1;
             teamNames.TeamTwo = team2;
 
-            return View();
+            return View(teamNames);
         }
 
         public ActionResult SteveScreen()
