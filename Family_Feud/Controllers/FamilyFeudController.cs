@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Family_Feud.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,7 @@ namespace Family_Feud.Controllers
         {
             return View();
         }
-        public ActionResult FamilyPicker()
+        public ActionResult FriendPicker()
         {
             return View();
         }
@@ -21,21 +22,18 @@ namespace Family_Feud.Controllers
         {
             return View();
         }
-        public ActionResult DavidsGameBoard()
-        {            
+        public ActionResult DavidsGameBoard(string team1, string team2)
+        {
+            PlayerInfo teamNames = new PlayerInfo();
+            teamNames.TeamOne = team1;
+            teamNames.TeamTwo = team2;
+
             return View();
         }
 
         public ActionResult SteveScreen()
         {
             return View();
-        }
-
-        public ActionResult GetQuestions()
-        {
-            
-            var questions = Url.Action("../Content/Questions/FamilyFeudQuestions.json");
-            return Json(questions, JsonRequestBehavior.AllowGet);
         }
     }
 }

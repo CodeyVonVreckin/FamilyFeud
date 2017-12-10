@@ -33,7 +33,7 @@ namespace Family_Feud
             bundles.Add(new StyleBundle("~/Content/GameBoard").Include(
                 "~/Content/FamilyFeudStyles/GameBoard.css"));
 
-            bundles.Add(new StyleBundle("~/Content/FamilyPicker").Include(
+            bundles.Add(new StyleBundle("~/Content/FriendPicker").Include(
                 "~/Content/FamilyFeudStyles/FamilyPicker.css"));
 
             bundles.Add(new StyleBundle("~/Content/DavidsStyles").Include(
