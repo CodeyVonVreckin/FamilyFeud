@@ -12,8 +12,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="boardStyle.css">
-    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>
-
     <title>Main Family Feud App</title>
 
 </head>
@@ -137,18 +135,36 @@
 
 </body>
 </html>
-<script>
+@*<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>*@
+<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js">
+    var SubKey = "sub-c-e53da4be-c647-11e7-8d13-12daa3930087";
+    var PubKey = "pub-c-12219e16-c45b-411e-aa5a-977e1a130441";
+    var myUUID = localStorage.getItem(SubKey + "uuid");
+    var myChannel = 'DavidSucksBallz';
+    if (myUUID == null) {
+        myUUID = pubnub.uuid();
+    }
     //initializes pubnub channel
-    var pubnub = new PubNub({
-        subscribeKey: "sub-c-e53da4be-c647-11e7-8d13-12daa3930087",
-        publishKey: "pub-c-12219e16-c45b-411e-aa5a-977e1a130441"
+    var pubnub = PubNub({
+        subscribeKey: SubKey,
+        publishKey: PubKey,
+        uuid: myUUID
+
+    });
+    console.log("HEY");
+   // var channel = PubNub.generateUUID();
+    pubnub.subscribe({
+        channel: myChannel,
+        restore: true,
+        callback: function (m) { console.log("WHOA") },
+        error: function (e) { console.log(e); },
+        connect: function (res) { console.log("connected! BITCH!!!"); },
+        disconnect: function (res) { console.log("disconnected HOMIE!!"); },
+        reconnect: function (res) { console.log("reconnected WHOE");}
     });
 
-    var channel = PubNub.generateUUID();
 
-    pubnub.subscribe({
-        channels: [channel]
-    })
+
 </script>
 <script>
     //  hide the box containers that hold the red Xs
