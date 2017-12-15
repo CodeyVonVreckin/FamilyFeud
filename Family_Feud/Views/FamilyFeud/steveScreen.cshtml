@@ -78,11 +78,28 @@
 
 </body>
 </html>
+<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>
+<script type="text/javascript">
+    //  want to store these in C#
+    var SubKey = "sub-c-e53da4be-c647-11e7-8d13-12daa3930087";
+    var PubKey = "pub-c-12219e16-c45b-411e-aa5a-977e1a130441";
+    var myChannel = 'DavidSucksBallz';
 
-<script>
     var pubnub = new PubNub({
-        subscribeKey: "sub-c-e53da4be-c647-11e7-8d13-12daa3930087",
-        publishKey: "pub-c-12219e16-c45b-411e-aa5a-977e1a130441",
-        uuid: ""
+        subscribeKey: SubKey,
+        publishKey: PubKey,
+
+    });
+
+    // Subscribe to the demo_tutorial channel
+    pubnub.addListener({
+        message: function (object) {
+            console.log(object.message[0]);
+            console.log(object.message[1]);
+        }
+    })
+
+    pubnub.subscribe({
+        channels: [myChannel]
     });
 </script>
