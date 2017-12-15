@@ -135,38 +135,13 @@
 
 </body>
 </html>
-@*<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>*@
-<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js">
+<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>
+<script type="text/javascript">
+    //  want to store these in C#
     var SubKey = "sub-c-e53da4be-c647-11e7-8d13-12daa3930087";
     var PubKey = "pub-c-12219e16-c45b-411e-aa5a-977e1a130441";
-    var myUUID = localStorage.getItem(SubKey + "uuid");
     var myChannel = 'DavidSucksBallz';
-    if (myUUID == null) {
-        myUUID = pubnub.uuid();
-    }
-    //initializes pubnub channel
-    var pubnub = PubNub({
-        subscribeKey: SubKey,
-        publishKey: PubKey,
-        uuid: myUUID
 
-    });
-    console.log("HEY");
-   // var channel = PubNub.generateUUID();
-    pubnub.subscribe({
-        channel: myChannel,
-        restore: true,
-        callback: function (m) { console.log("WHOA") },
-        error: function (e) { console.log(e); },
-        connect: function (res) { console.log("connected! BITCH!!!"); },
-        disconnect: function (res) { console.log("disconnected HOMIE!!"); },
-        reconnect: function (res) { console.log("reconnected WHOE");}
-    });
-
-
-
-</script>
-<script>
     //  hide the box containers that hold the red Xs
     $(".lRedXbox").hide();
     $(".largexContainer").hide();
@@ -178,128 +153,89 @@
     correctBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-clang.wav');
     wrongBuzzer.setAttribute('src', 'http://www.qwizx.com/gssfx/usa/ff-strike.wav');
 
+    //  want to get rid of this bitch ass shit!
     var xCount = 0; //   used to keep track of the number of wrong
     var roundCounter = 0; // used to keep track of current round
 
     // Total Score Variables
     var total = $("#roundScore").text();
-
-
-
-
-    //  ***Click Events
-
-    //  click event for the container that holds the 3 small Xs
-    $("#sXcontainer").on('click', function () {
-        //  first click
-        if (xCount == 0) {
-            //  turns the first X red
-            $("#smallX1").removeClass('grayXbox');
-            $("#smallX1").addClass('redXbox');
-            xCount++;
-        }
-        //  second click
-        else if (xCount == 1) {
-            //  turns the second X red
-            $("#smallX2").removeClass('grayXbox');
-            $("#smallX2").addClass('redXbox');
-            xCount++;
-        }
-        //  third click
-        else {
-            //  turns the t xhird X red
-            $("#smallX3").removeClass('grayXbox');
-            $("#smallX3").addClass('redXbox');
-            xCount++;
-        }
-
-        //  shows the container that holds the large Xs
-        //  but leaves the individual Xs hidden so they do
-        //   not display over the game board
-        $(".largexContainer").show();
-
-        DisplayLargeX(xCount);
+    var shuffledQuestions;
+    //initializes pubnub channel
+    var pubnub = new PubNub({
+        subscribeKey: SubKey,
+        publishKey: PubKey,
+      
     });
 
-    // added click event to represent when a team misses a question in the beginning showdown.
-    // it shows 1 x in the middle of the screen
-    $(".questionBox").on('click', function () {
-        var counter = 4;
-        $(".largexContainer").show();
-        DisplayLargeX(counter);
-    });
+    // Subscribe to the demo_tutorial channel
+    pubnub.addListener({
+        message: function (object) {
+            //console.log(object.message.Question);
+            //console.log(object.message.Answers);
+            switch (object.message[0]) {
+                case "Next":
+                    MakeQuestion();
+                    break;
 
-    //  click event for the answer boxes
-        $(".result").on('click', function () {
-            //  grabs the Id of the click answered box
-            var thisID = $(this).prop('id');
-            var divID = document.getElementById(thisID);
+               //    team elements ID(passed in)
+                case "Award":
+                    AwardPoints(object.message[1]);
+                    FlipRemainingAnswers();                    
+                    break;
+               //   need answer ID
+                case "Correct":
+                    //  will flip the answer
+                    Flip(object.message[1]);
+                    // add points to the score board
+                    AddPointsToTotal(object.message[1]);
+                    break;
 
-            // if statement prevents answer that has already been flipped to be re-flipped
-            if ($(divID).hasClass("flipped")) {
-
+                case "Wrong":                 
+                    DisplaySmallXs(object.message[1]);
+                    //  shows the container that holds the large Xs
+                    //  but leaves the individual Xs hidden so they do
+                    //   not display over the game board
+                    $(".largexContainer").show();
+                    DisplayLargeX(object.message[1]);                    
+                    break;
             }
-            else {
-                //  passes the Id to the flip function
-                Flip(divID);
+            //if (message.message.Request == "Award") {
+            //    console.log(message.message.Who);
+            //}
+            //console.log(message.message);
+            //console.log(message);
+        }
+    })
 
-
-
-                // allows answers to be flipped at the end of round without adding points to the total round score
-                // if all x's have been used
-                if (xCount <= 3) {
-                    // wapping mess that adds the total score for the round.
-                    $("#roundScore").text(function () {
-                        for (i = 1; i < 9; i++) {
-                            //  variable that stores the round total
-                            var total = (+$("#roundScore").text());
-                            if ($("#result" + (i)).is(divID)) {
-                                //  if statements below factor in the multiplicity of the round
-                                if ($("#roundNumber").text() == "Round 2") {
-                                    // variable gets the point value associated with the correct answer
-                                    var points = ($("#resultPoints" + i).text() * 2);
-                                }
-                                else if ($("#roundNumber").text() == "Round 3") {
-                                    var points = ($("#resultPoints" + i).text() * 3);
-                                }
-                                else {
-                                    var points = $("#resultPoints" + i).text();
-                                }
-
-                                return (+points) + (+total);
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    
-
-
-
-
-
-
-    //  click event for the team 1 score addition
-    $("#team1Button").on('click', function () {
-        var team1Total = $("#teamTotal1");
-        total = (+$("#roundScore").text()) + (+$("#teamTotal1").text());
-        team1Total = $("#teamTotal1").text(total);
-       // console.log(total);
-        return $(team1Total).text();
+    pubnub.subscribe({
+        channels: [myChannel]
     });
 
-    //  click event for the team 2 score addition
-    $("#team2Button").on('click', function () {
-        var team2Total = $("#teamTotal2");
-        total = (+$("#roundScore").text()) + (+$("#teamTotal2").text());
-        team1Total = $("#teamTotal2").text(total);
-        // console.log(total);
-        return $(team2Total).text();
-    });
+    //// Publish a simple message to the demo_tutorial channel
+    //pubnub.publish({
+    //    message: ["Next"],
+            
+    //        //  keeping the prop names, but the values will be passed in via steve            
+    //        //"Request": "Award",
+    //        //"Who": "Team1",
+    //        //"Answer":"resultID"          
+                
+    //    channel: myChannel
+    //});
+   //// var channel = PubNub.generateUUID();
+   // pubnub.subscribe({
+   //     channel: myChannel,
+   //     restore: true,
+   //     callback: function (m) { console.log("WHOA") },
+   //     error: function (e) { console.log(e); },
+   //     connect: function (res) { console.log("connected! BITCH!!!"); },
+   //     disconnect: function (res) { console.log("disconnected HOMIE!!"); },
+   //     reconnect: function (res) { console.log("reconnected WHOE");}
+   // });
 
-    //  click event for the next question button
-    $("#nextQuestionButton").on('click', function () {
+
+    //  NEXT
+    function MakeQuestion() {
         $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
             var alldata = data;
             var questions = Object.keys(data);
@@ -322,6 +258,7 @@
             else {
                 adjustedNumberAnswers = numberOfAnswers;
             }
+
             for (var i = 0; i < 8; i++) {
                 $("#frontResult" + (i + 1)).removeClass("p");
                 $("#frontResult" + (i + 1)).text('');
@@ -345,23 +282,32 @@
                 }
             }, 300);
 
+
+            pubnub.publish({
+                message: [shuffledQuestions[0], answers],
+                channel: myChannel
+            });
+
+
         });
 
         $(".redXbox").addClass("grayXbox");
         $(".redXbox").removeClass("redXbox");
-        //resets the x counter for new round
-       xCount = 0;
-
 
         UpdateRound(roundCounter);
-
-
-
-    });
-
-
-
-    //  ***Functions
+    }
+    
+    function Shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    }
 
     function UpdateRound(roundCount) {
         if (roundCount == 1) {
@@ -380,7 +326,83 @@
         }
     }
 
+    //  AWARD
+    function AwardPoints(teamID) {
 
+        var teamTotal = $(teamID);
+        total = (+$("#roundScore").text()) + (+$(teamID).text());
+        teamTotal = $(teamID).text(total);
+        // console.log(total);
+        return $(team1Total).text();
+    }
+
+    function FlipRemainingAnswers() {
+        for (var i = 1; i < 9; i++) {
+            if ($("#result" + (i)).hasClass("flipped")) {
+
+            }
+            else {
+                Flip("#result" + (i));
+            }
+        }
+    }
+
+    //  CORRECT
+    //  this function triggers the flip animation for the answer boxes
+    function Flip(id) {
+        //  toggles the flipped class to the element whos Id was passed
+        //  into the function
+        $(id).toggleClass('flipped');
+        //  plays the correct answer audio
+        correctBuzzer.play();
+    }
+    // this function is the same as Flip without the correct buzzer sound
+    //for the next question click event.
+    function FlipNoDing(id) {
+        $(id).toggleClass('flipped');
+    }
+
+    function AddPointsToTotal(answerId) {
+        var total = (+$("#roundScore").text());
+
+        //  if statements below factor in the multiplicity of the round
+        if ($("#roundNumber").text() == "Round 2") {
+            // variable gets the point value associated with the correct answer
+            var points = ($(answerId).text() * 2);
+        }
+        else if ($("#roundNumber").text() == "Round 3") {
+            var points = ($(answerId).text() * 3);
+        }
+        else {
+            var points = $(answerId).text();
+        }
+
+        return (+points) + (+total);
+    }
+
+    //  WRONG
+    function DisplaySmallXs(count) {
+        if (count == 0) {
+            //  turns the first X red
+            $("#smallX1").removeClass('grayXbox');
+            $("#smallX1").addClass('redXbox');
+
+        }
+        //  second click
+        else if (count == 1) {
+            //  turns the second X red
+            $("#smallX2").removeClass('grayXbox');
+            $("#smallX2").addClass('redXbox');
+
+        }
+        //  third click
+        else {
+            //  turns the t xhird X red
+            $("#smallX3").removeClass('grayXbox');
+            $("#smallX3").addClass('redXbox');
+
+        }
+    }
 
     //  Displays the 3 large Xs in front of the game board
     //  and hides them after 4 seconds
@@ -423,75 +445,174 @@
     }
 
 
-    //  this function triggers the flip animation for the answer boxes
-    function Flip(id) {
-        //  toggles the flipped class to the element whos Id was passed
-        //  into the function
-        $(id).toggleClass('flipped');
-        //  plays the correct answer audio
-        correctBuzzer.play();
-    }
-    // this function is the same as Flip without the correct buzzer sound
-    //for the next question click event.
-    function FlipNoDing(id) {
-        $(id).toggleClass('flipped');
-    }
 
-    var shuffledQuestions;
+    // added click event to represent when a team misses a question in the beginning showdown.
+    // it shows 1 x in the middle of the screen
+    $(".questionBox").on('click', function () {
+        var counter = 4;
+        $(".largexContainer").show();
+        DisplayLargeX(counter);
+    });
 
-    function MakeQuestion() {
-        var alldata;
-        var questions;
-        var answers;
-        var numberOfAnswers;
-        $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
-            alldata = data;
-            questions = Object.keys(data);
-            //  randomizes the array of questions
-            shuffledQuestions = Shuffle(questions);
-            //  pulls out the array of answers for the first question in the question array
-            answers = alldata[questions[0]];
-            numberOfAnswers = answers.length;
-            console.log(shuffledQuestions[0]);
-            console.log(answers);
-            console.log(numberOfAnswers);
+    
+        //  ****** BITCH ASS CLICK EVENTS!!
 
-            //console.log(answers[0][0]);
-            //console.log(answers[0][1]);
+    ////  click event for the container that holds the 3 small Xs
+    //$("#sXcontainer").on('click', function () {
+    //    //  first click
+    //    if (xCount == 0) {
+    //        //  turns the first X red
+    //        $("#smallX1").removeClass('grayXbox');
+    //        $("#smallX1").addClass('redXbox');
+    //        xCount++;
+    //    }
+    //    //  second click
+    //    else if (xCount == 1) {
+    //        //  turns the second X red
+    //        $("#smallX2").removeClass('grayXbox');
+    //        $("#smallX2").addClass('redXbox');
+    //        xCount++;
+    //    }
+    //    //  third click
+    //    else {
+    //        //  turns the t xhird X red
+    //        $("#smallX3").removeClass('grayXbox');
+    //        $("#smallX3").addClass('redXbox');
+    //        xCount++;
+    //    }
 
-            //  displays all answers and their point values for the Q (question)
-            // for (var i = 0; i < Q.length; i++){
-            //    console.log(Q[i]);
-            //}
-            //console.log(test);
-        });
-        return shuffledQuestions[0];
+    //    //  shows the container that holds the large Xs
+    //    //  but leaves the individual Xs hidden so they do
+    //    //   not display over the game board
+    //    $(".largexContainer").show();
 
-    }
+    //    DisplayLargeX(xCount);
+    //});
 
 
+      //  click event for the answer boxes
+        //$(".result").on('click', function () {
+        //    //  grabs the Id of the click answered box
+        //    var thisID = $(this).prop('id');
+        //    var divID = document.getElementById(thisID);
 
-    function Shuffle(array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-        while (0 !== currentIndex) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-        return array;
-    }
-    //  Functions I still need:
+        //    // if statement prevents answer that has already been flipped to be re-flipped
+        //    if ($(divID).hasClass("flipped")) {
 
-    //  a Get questions data
-    //  Shuffle/ randomize list of questions
-    //  Change questions
-    //  Make question?
+        //    }
+        //    else {
+        //        //  passes the Id to the flip function
+        //        Flip(divID);
 
 
-    // - made an on-click event to display a centered large X when the question box is clicked for the beginning showdown.
-    // - added if statement to prevent flipped answers to add to the total roundscore after all attempts have been used.
-    // - added if statement to not allow answers that have been flipped to be re-flipped due to causing the result round to be wrong.
-    // - changed Flip2 to FlipNoDing.
+
+        //        // allows answers to be flipped at the end of round without adding points to the total round score
+        //        // if all x's have been used
+        //        if (xCount <= 3) {
+        //            // wapping mess that adds the total score for the round.
+        //            $("#roundScore").text(function () {
+        //                for (i = 1; i < 9; i++) {
+        //                    //  variable that stores the round total
+        //                    var total = (+$("#roundScore").text());
+        //                    if ($("#result" + (i)).is(divID)) {
+        //                        //  if statements below factor in the multiplicity of the round
+        //                        if ($("#roundNumber").text() == "Round 2") {
+        //                            // variable gets the point value associated with the correct answer
+        //                            var points = ($("#resultPoints" + i).text() * 2);
+        //                        }
+        //                        else if ($("#roundNumber").text() == "Round 3") {
+        //                            var points = ($("#resultPoints" + i).text() * 3);
+        //                        }
+        //                        else {
+        //                            var points = $("#resultPoints" + i).text();
+        //                        }
+
+        //                        return (+points) + (+total);
+        //                    }
+        //                }
+        //            });
+        //        }
+        //    }
+        //});
+
+
+    ////  click event for the team 1 score addition
+    //$("#team1Button").on('click', function () {
+    //    var team1Total = $("#teamTotal1");
+    //    total = (+$("#roundScore").text()) + (+$("#teamTotal1").text());
+    //    team1Total = $("#teamTotal1").text(total);
+    //   // console.log(total);
+    //    return $(team1Total).text();
+    //});
+
+    ////  click event for the team 2 score addition
+    //$("#team2Button").on('click', function () {
+    //    var team2Total = $("#teamTotal2");
+    //    total = (+$("#roundScore").text()) + (+$("#teamTotal2").text());
+    //    team1Total = $("#teamTotal2").text(total);
+    //    // console.log(total);
+    //    return $(team2Total).text();
+    //});
+
+        ////  click event for the next question button
+    //$("#nextQuestionButton").on('click', function () {
+    //    $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
+    //        var alldata = data;
+    //        var questions = Object.keys(data);
+    //        //  randomizes the array of questions
+    //        var shuffledQuestions = Shuffle(questions);
+    //        //  pulls out the array of answers for the first question in the question array
+    //        var answers = alldata[questions[0]];
+    //        var numberOfAnswers = answers.length;
+    //        //console.log(shuffledQuestions[0]);
+    //        //console.log(answers);
+    //        //console.log(numberOfAnswers);
+    //        //replaces text in the questionBox
+    //        $(".questionBox").text(shuffledQuestions[0]);
+
+    //        var adjustedNumberAnswers;
+
+    //        if (numberOfAnswers > 8) {
+    //            adjustedNumberAnswers = 8;
+    //        }
+    //        else {
+    //            adjustedNumberAnswers = numberOfAnswers;
+    //        }
+    //        for (var i = 0; i < 8; i++) {
+    //            $("#frontResult" + (i + 1)).removeClass("p");
+    //            $("#frontResult" + (i + 1)).text('');
+    //            $("#backResult" + (i + 1)).text('');
+    //            $("#resultPoints" + (i + 1)).text('');
+    //            if ($("#result" + (i + 1)).hasClass("flipped")) {
+    //                FlipNoDing("#result" + (i + 1));
+    //            }
+
+    //        }
+
+    //        setTimeout(function () {
+    //            for (var i = 0; i < adjustedNumberAnswers; i++) {
+    //                $("#frontResult" + (i + 1)).addClass("p");
+    //                $("#frontResult" + (i + 1)).text(i + 1);
+    //                $("#backResult" + (i + 1)).text(answers[i][0]);
+    //                $("#resultPoints" + (i + 1)).text(answers[i][1]);
+    //                total = 0;
+    //                $("#roundScore").text(total);
+
+    //            }
+    //        }, 300);
+
+    //    });
+
+    //    $(".redXbox").addClass("grayXbox");
+    //    $(".redXbox").removeClass("redXbox");
+    //    //resets the x counter for new round
+    //   xCount = 0;
+
+
+    //    UpdateRound(roundCounter);
+
+
+
+    //});
+
 </script>
