@@ -170,13 +170,12 @@
     // Subscribe to the demo_tutorial channel
     pubnub.addListener({
         message: function (object) {
-            //console.log(object.message.Question);
-            //console.log(object.message.Answers);
+            console.log(object.message[1]);
+            console.log(object.message[0]);
             switch (object.message[0]) {
                 case "Next":
                     MakeQuestion();
                     break;
-
                //    team elements ID(passed in)
                 case "Award":
                     AwardPoints(object.message[1]);
@@ -187,9 +186,8 @@
                     //  will flip the answer
                     Flip(object.message[1]);
                     // add points to the score board
-                    AddPointsToTotal(object.message[1]);
+                    //AddPointsToTotal(object.message[2]);
                     break;
-
                 case "Wrong":                 
                     DisplaySmallXs(object.message[1]);
                     //  shows the container that holds the large Xs
@@ -199,9 +197,6 @@
                     DisplayLargeX(object.message[1]);                    
                     break;
             }
-            //if (message.message.Request == "Award") {
-            //    console.log(message.message.Who);
-            //}
             //console.log(message.message);
             //console.log(message);
         }
@@ -284,7 +279,7 @@
 
 
             pubnub.publish({
-                message: [shuffledQuestions[0], answers],
+                message: ["NewQuestion",shuffledQuestions[0], answers],
                 channel: myChannel
             });
 
@@ -328,12 +323,10 @@
 
     //  AWARD
     function AwardPoints(teamID) {
-
-        var teamTotal = $(teamID);
+        
         total = (+$("#roundScore").text()) + (+$(teamID).text());
-        teamTotal = $(teamID).text(total);
         // console.log(total);
-        return $(team1Total).text();
+        return $(teamID).text(total);
     }
 
     function FlipRemainingAnswers() {
@@ -353,6 +346,28 @@
         //  toggles the flipped class to the element whos Id was passed
         //  into the function
         $(id).toggleClass('flipped');
+
+        $("#roundScore").text(function () {
+            for (i = 1; i < 9; i++) {
+                //  variable that stores the round total
+                var total = (+$("#roundScore").text());
+                if ($("#result" + (i)).is(id)) {
+                    //  if statements below factor in the multiplicity of the round
+                    if ($("#roundNumber").text() == "Round 2") {
+                        // variable gets the point value associated with the correct answer
+                        var points = ($("#resultPoints" + i).text() * 2);
+                    }
+                    else if ($("#roundNumber").text() == "Round 3") {
+                        var points = ($("#resultPoints" + i).text() * 3);
+                    }
+                    else {
+                        var points = $("#resultPoints" + i).text();
+                    }
+
+                    return (+points) + (+total);
+                }
+            }
+        });
         //  plays the correct answer audio
         correctBuzzer.play();
     }
@@ -362,34 +377,34 @@
         $(id).toggleClass('flipped');
     }
 
-    function AddPointsToTotal(answerId) {
-        var total = (+$("#roundScore").text());
+    //function AddPointsToTotal(answerId) {
+    //    var total = (+$("#roundScore").text());
 
-        //  if statements below factor in the multiplicity of the round
-        if ($("#roundNumber").text() == "Round 2") {
-            // variable gets the point value associated with the correct answer
-            var points = ($(answerId).text() * 2);
-        }
-        else if ($("#roundNumber").text() == "Round 3") {
-            var points = ($(answerId).text() * 3);
-        }
-        else {
-            var points = $(answerId).text();
-        }
+    //    //  if statements below factor in the multiplicity of the round
+    //    if ($("#roundNumber").text() == "Round 2") {
+    //        // variable gets the point value associated with the correct answer
+    //        var points = ($(answerId).text() * 2);
+    //    }
+    //    else if ($("#roundNumber").text() == "Round 3") {
+    //        var points = ($(answerId).text() * 3);
+    //    }
+    //    else {
+    //        var points = $(answerId).text();
+    //    }
 
-        return (+points) + (+total);
-    }
+    //    return (+points) + (+total);
+    //}
 
     //  WRONG
     function DisplaySmallXs(count) {
-        if (count == 0) {
+        if (count == 1) {
             //  turns the first X red
             $("#smallX1").removeClass('grayXbox');
             $("#smallX1").addClass('redXbox');
 
         }
         //  second click
-        else if (count == 1) {
+        else if (count == 2) {
             //  turns the second X red
             $("#smallX2").removeClass('grayXbox');
             $("#smallX2").addClass('redXbox');
@@ -425,6 +440,7 @@
             $("#secondWrong").show();
             $("#thirdWrong").show();
         }
+        //  ???
         else {
             $("#secondWrong").show();
         }
