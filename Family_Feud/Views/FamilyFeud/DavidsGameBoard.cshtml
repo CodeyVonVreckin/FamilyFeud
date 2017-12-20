@@ -1,4 +1,4 @@
-﻿@*@model Family_Feud.Models.PlayerInfo*@
+﻿@model Family_Feud.Models.PlayerInfo
 @{
     Layout = null;
 }
@@ -209,7 +209,7 @@
     //// Publish a simple message to the demo_tutorial channel
     //pubnub.publish({
     //    message: ["Next"],
-            
+
     //        //  keeping the prop names, but the values will be passed in via steve            
     //        //"Request": "Award",
     //        //"Who": "Team1",
@@ -335,7 +335,7 @@
 
             }
             else {
-                Flip("#result" + (i));
+                FlipNoDing("#result" + (i));
             }
         }
     }
@@ -440,7 +440,6 @@
             $("#secondWrong").show();
             $("#thirdWrong").show();
         }
-        //  ???
         else {
             $("#secondWrong").show();
         }
