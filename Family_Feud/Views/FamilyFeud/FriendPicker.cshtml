@@ -16,38 +16,13 @@
     @Scripts.Render("~/bundles/modernizr")
     <meta name="viewport" content="width=device-width" />
     <title>FriendPicker</title>
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            font: 32px/1.4 georgia, serif;
-            letter-spacing: 0;
-        }
-
-        #curved1 {
-            position: absolute;
-            top: 32px;
-            left: 0;
-            width: 400px;
-        }
-
-        #curved2 {
-            position: absolute;
-            top: 32px;
-            left: 400px;
-            width: 400px;
-        }
-
-    </style>
 </head>
 <body class="fullPage">
     <div style="text-align:center">
-        <div id="curved2">Here is a small arc</div>
-        <div id="curved1">Here is some curved text that goes all the way around.</div>
         <h1 style="color:yellow; font-size:100px; font-weight:bolder">Friend Picker</h1>
         <h6 style="color:yellow ">Not Family</h6>
     </div>
-        <div style="text-align:center; width:65%;" class="container">
+        <div style="text-align:center; width:65%; background-color:darkcyan" class="container">
             <div class="row">
                 <div style="text-align:left" class="col-md-5">
                     <h1 style="color:yellow">Team 1</h1>
@@ -64,7 +39,6 @@
             </div>
             <div class="row">
                 <button id="startButton" class="btn btn-primary" >Start Game</button>
-                @Html.ActionLink("Steves Screen", "SteveScreen", "FamilyFeud", null, new { target = "_blank" });
             </div>
         </div>      
 </body>
