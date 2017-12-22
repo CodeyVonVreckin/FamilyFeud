@@ -1,4 +1,3 @@
-@model Family_Feud.Models.GameData
 @{
     Layout = null;
 }
@@ -70,8 +69,8 @@
     </div>
     <div class="otherButtonsBox">
         <button class="wrongButton">WRONG ANSWER</button>
-        <button class="addToTeam1">@Model.TeamOne</button>
-        <button class="addToTeam2">@Model.TeamTwo</button>
+        <button class="addToTeam1">Team 1 Points</button>
+        <button class="addToTeam2">Team 2 Points</button>
         <button class="nextQuestion">Next Question</button>
     </div>
 
@@ -81,9 +80,10 @@
 </html>
 <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>
 <script type="text/javascript">
-    var SubKey = '@Model.SubKey';
-    var PubKey = '@Model.PubKey';
-    var myChannel = '@Model.Channel';
+    //  want to store these in C#
+    var SubKey = "sub-c-e53da4be-c647-11e7-8d13-12daa3930087";
+    var PubKey = "pub-c-12219e16-c45b-411e-aa5a-977e1a130441";
+    var myChannel = 'DavidSucksBallz';
     var wrongAnswersCount = 1;
 
     var pubnub = new PubNub({
@@ -95,11 +95,7 @@
     pubnub.subscribe({
         channels: [myChannel]
     });
-
-    pubnub.publish({
-        message: ["Start"],
-        channel: myChannel
-    });
+    
     // Subscribe to the demo_tutorial channel
     pubnub.addListener({
         message: function (object) {
