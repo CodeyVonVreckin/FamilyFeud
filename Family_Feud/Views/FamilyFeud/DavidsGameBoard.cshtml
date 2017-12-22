@@ -1,4 +1,5 @@
-﻿@*@model Family_Feud.Models.PlayerInfo*@
+﻿@model Family_Feud.Models.GameData
+    @using Family_Feud.Helpers
 @{
     Layout = null;
 }
@@ -16,6 +17,12 @@
 
 </head>
 <body class="fullPage">
+    <div id="QR" style="position:absolute; right:0%;">
+        @Html.GenerateQrCode("https://wwww.feudwithfriendsnotfamily.com/Feud/SteveScreen?team1=" + Model.TeamOne + "&team2="+Model.TeamTwo+"&channel="+Model.Channel)
+        @*@Html.GenerateQrCode("http://localhost:50392/FamilyFeud/SteveScreen?team1=" + Model.TeamOne + "&team2=" + Model.TeamTwo + "&channel=" + Model.Channel)*@
+        <br />
+        <label style="color:yellow;">^^ Scan code to start the game ^^</label>
+    </div>
     <div class="circle"> </div>
     <section class="smallxContainer" id="sXcontainer">
         <div class="SxBox">
@@ -131,17 +138,18 @@
         </section>
     </section>
     <label class="questionBox">To start, get the Steve of the group to hit the next question button.</label>
-
-
 </body>
 </html>
 <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>
 <script type="text/javascript">
     //  want to store these in C#
-    var SubKey = "sub-c-e53da4be-c647-11e7-8d13-12daa3930087";
-    var PubKey = "pub-c-12219e16-c45b-411e-aa5a-977e1a130441";
-    var myChannel = 'DavidSucksBallz';
+    var SubKey ='@Model.SubKey';
+    var PubKey = '@Model.PubKey';
+    var myChannel = '@Model.Channel';
 
+    //var SubKey = "sub-c-e53da4be-c647-11e7-8d13-12daa3930087";
+    //var PubKey = "pub-c-12219e16-c45b-411e-aa5a-977e1a130441";
+    //var myChannel = 'DavidSucksBallz';
     //  hide the box containers that hold the red Xs
     $(".lRedXbox").hide();
     $(".largexContainer").hide();
@@ -173,6 +181,8 @@
             console.log(object.message[1]);
             console.log(object.message[0]);
             switch (object.message[0]) {
+                case "Start":
+                    $("#QR").hide();
                 case "Next":
                     MakeQuestion();
                     break;
@@ -209,7 +219,7 @@
     //// Publish a simple message to the demo_tutorial channel
     //pubnub.publish({
     //    message: ["Next"],
-            
+
     //        //  keeping the prop names, but the values will be passed in via steve            
     //        //"Request": "Award",
     //        //"Who": "Team1",
@@ -335,7 +345,7 @@
 
             }
             else {
-                Flip("#result" + (i));
+                FlipNoDing("#result" + (i));
             }
         }
     }
@@ -440,7 +450,6 @@
             $("#secondWrong").show();
             $("#thirdWrong").show();
         }
-        //  ???
         else {
             $("#secondWrong").show();
         }
