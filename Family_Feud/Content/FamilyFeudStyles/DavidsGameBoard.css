@@ -8,12 +8,10 @@
     height: 100vh;
     box-sizing: border-box;
     /*^^^ testing take out when done^^^^ */
-
-
     border: 2px none lime;
     /*^^^ testing take out when done^^^^ */
     /*gradient animated background code*/
-    background: linear-gradient(291deg, #010f7f, #010525, #010f7f);
+    background: linear-gradient(291deg, #010f7f, #010525, #00004d);
     background-size: 600% 300%;
     -webkit-animation: animBackground 15s ease infinite;
     -moz-animation: animBackground 15s ease infinite;
@@ -479,7 +477,7 @@
     border-radius: 9px;
     display: block;
     text-align: center;
-    font: 8vh Clarendon, sans-serif;
+    font: 7vh Clarendon, sans-serif;
     font-weight: bold;
     line-height: 9vh;
     color: white;

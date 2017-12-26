@@ -5,6 +5,12 @@ html {
     height: 100%;
     width: 100%;
 }
+.content {
+    position: absolute;
+    width: 80vw;
+    height: 100vh;
+    border: 1px solid yellow;
+}
 .Team1NameDiv{
     height:100px;
     width:500px;
