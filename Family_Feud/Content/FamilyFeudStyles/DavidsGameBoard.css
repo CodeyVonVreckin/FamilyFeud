@@ -4,17 +4,17 @@
 /* defines the overall page */
 .fullPage {
     position: relative;
-    width: 1600px;
-    height: 900px;
+    width: 100vw;
+    height: 100vh;
     box-sizing: border-box;
     /*^^^ testing take out when done^^^^ */
-    margin-top: 3%;
-    left: 0%;
-    border: 1px none white;
+
+
+    border: 2px none lime;
     /*^^^ testing take out when done^^^^ */
     /*gradient animated background code*/
     background: linear-gradient(291deg, #010f7f, #010525, #010f7f);
-    background-size: 600% 600%;
+    background-size: 600% 300%;
     -webkit-animation: animBackground 15s ease infinite;
     -moz-animation: animBackground 15s ease infinite;
     animation: animBackground 15s ease infinite;
@@ -64,84 +64,91 @@
 
 .fullPage .circle {
     position: absolute;
-    width: 1200px;
-    height: 800px;
-    margin-left: 16%;
-    margin-top: 1%;
+    width: 99vw;
+    height: 100vh;
+    margin-top: 2.7vh;
     opacity: 0.65;
     background-image: url("../Images/Untitled4.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 74%; 
+    border: 2px none yellow;
 }
 
 .fullPage .smallxContainer {
     position: absolute;
-    width: 82px;
-    height: 25.99px;
+    width: 6.9vw;
+    height: 4vh;
     box-sizing: border-box;
+    margin: 20.8vh 0vw 0vh 70vw;
+
     column-count: 3;
-    column-gap: 4px;
-    display: block;
-    margin: 9.6% 0% 0% 69.5%;
-    padding: 0px 1px 0px 1px;
-    border: 0px solid white;
 }
 
-.smallxContainer .SxBox {
-    position: relative;
-    width: 25px;
-    height: 26px;
-    box-sizing: border-box;
-    display: block;
-    border: 1px none red;
+#smallX1 {
+    
+}
+#smallX2 {
+    margin-left: 33%;
+}
+#smallX3 {
+    margin-left: 66%;
 }
 
-.SxBox .redXbox {
+.smallxContainer .redXbox {
     position: absolute;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     background-image: url("../Images/smallxRed2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.SxBox .grayXbox {
+.smallxContainer .grayXbox {
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0.8;
+    opacity: 0.7;
     box-sizing: border-box;
     background-image: url("../Images/smallxGray2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .fullPage .roundIndicator {
     position: absolute;
-    width: 100px;
-    height: 30px;
+    width: 8vw;
+    height: 4vh;
     box-sizing: border-box;
-    margin: 9.5% 0% 0% 25%;
-    padding-top: .1%;
+    margin: 20.8vh 0vw 0vh 25vw;
+    padding-top: .1vh;
     border-radius: 7px;
     background: black;
     display: block;
     text-align: center;
-    font: 22px Clarendon, sans-serif;
+    font: 3vh Clarendon, sans-serif;
     font-weight: bold;
     color: white;
+    font-stretch: condensed;
+    opacity: .9
 }
 /* Class that creates a score box that shows how many points were aquired per round */
 .fullPage .roundScoreBox {
     position: relative;
-    height: 100px;
-    width: 180px;
+    height: 16vh;
+    width: 14vw;
     box-sizing: border-box;
-    left: 44.5%;
+    left: 44vw;
     top: 6%;
     border: 5px solid #282828;
     border-radius: 9px;
     display: block;
     text-align: center;
-    font: 75px Clarendon, sans-serif;
+    font: 10vh Clarendon, sans-serif;
     font-weight: bold;
     color: white;
-    line-height: 125%;
+    line-height: 15vh;
     background: radial-gradient(circle, #3366cc 2%, #000099 80% );
 }
 
@@ -151,13 +158,14 @@
 /* .resultBoard creates the overall container that holds all of the individual result boxes. */
 .fullPage .resultBoard {
     position: relative;
-    width: 800px;
-    height: 358px;
+    width: 52vw;
+    height: 45vh;
     column-count: 2;
-    column-gap: 0px;
     box-sizing: border-box;
-    margin: 5% 0% 0% 25%;
+    margin: 9vh 0vw 0vh 25vw;
+    padding-top: .5%;
     border: 7px solid #282828;
+    /*border: 1px solid lime;*/
     border-radius: 7px;
     background: black;
     -webkit-perspective: 1000px;
@@ -165,24 +173,47 @@
 }
 
 /* .container is the invisible box that holds the front result box and the back result box. */
-.container {
-    position: relative;
-    width: 100%;
-    height: 25%;
+ .resultBoard .container {
+    position: absolute;
+    width: 48%;
+    height: 23%;
     box-sizing: border-box;
-    border: 2px solid black;
+    /*border: .2vh solid black;*/
     -webkit-perspective: 800px;
     perspective: 800px;
 }
-
-/* .result is the parent class to the front result box and the back result box. 
+#container1 {
+    margin: 0% 0% 0% 1%;
+}
+ #container2 {
+     margin: 10.5% 0% 0% 1%;
+ }
+#container3 {
+    margin: 21% 0% 0% 1%;
+}
+#container4 {
+    margin: 31.5% 0% 0% 1%;
+}
+#container5 {
+    margin: 0% 0% 0% 50.5%;
+}
+#container6 {
+    margin: 10.5% 0% 0% 50.5%;
+}
+#container7 {
+    margin: 21% 0% 0% 50.5%;
+}
+#container8 {
+    margin: 31.5% 0% 0% 50.5%;
+}
+    /* .result is the parent class to the front result box and the back result box. 
 			This is needed because both the front and back result boxes share a lot of characteristics. */
-.result {
+    .resultBoard .result {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 98%;
     box-sizing: border-box;
-    border: 3px inset white;
+    border: 2px inset white;
     -webkit-transition: -webkit-transform 0.9s;
     transition: transform 0.9s;
     -webkit-transform-style: preserve-3d;
@@ -200,7 +231,7 @@
         width: 100%;
         display: block;
         text-align: center;
-        font: 20px Clarendon, sans-serif;
+        font: 5vh Clarendon, sans-serif;
         font-weight: bold;
         font-size: 50px;
         color: white;
@@ -210,16 +241,16 @@
 
     /* Allows the frontResult to have a dark blue circle around the number */
     .result .p {
-        width: 45px;
-        height: 45px;
+        width: 3vw;
+        height: 6vh;
         box-sizing: border-box;
-        margin: 5% auto auto auto;
+        margin: 1.5vh auto auto auto;
         padding-top: 1%;
-        line-height: 120%;
+        line-height: 12vh;
         border-radius: 50%;
         background: linear-gradient(to top, #000066 53%, #000099 81%);
         text-align: center;
-        font: 30px Clarendon, sans-serif;
+        font: 4vh Clarendon, sans-serif;
         font-weight: bold;
         color: white;
     }
@@ -236,10 +267,10 @@
         width: 80%;
         box-sizing: border-box;
         border: 3px inset white;
-        font-size: 150%;
+        font-size: 3vh;
         text-align: center;
         display: block;
-        line-height: 330%;
+        line-height: 8vh;
         background: linear-gradient(to bottom, #3366cc 27%, #000099 80%);
         -webkit-transform: rotateX( 180deg );
         transform: rotateX( 180deg );
@@ -249,7 +280,8 @@
         width: 20%;
         left: 80%;
         box-sizing: border-box;
-        line-height: 150%;
+        font-size: 6vh;
+        line-height: 8vh;
         border: 3px inset white;
         background: radial-gradient(circle, #0000CD 20%, #000080 70% );
         -webkit-transform: rotateX( 180deg );
@@ -263,7 +295,8 @@
         transform: rotateX( 180deg );
     }
 
-.fullPage .buttonBox {
+    /*Uneeded button classes once mobile integration was added*/
+/*.fullPage .buttonBox {
     position: absolute;
     width: 400px;
     height: 50px;
@@ -281,7 +314,7 @@
 
 .buttons .awardTeam1 {
     position: absolute;
-    width: 33.33%;
+    width: 33vw;
     height: 100%;
     box-sizing: border-box;
     padding-top: 3%;
@@ -307,25 +340,34 @@
     padding-top: 3%;
     display: block;
     text-align: right;
-}
+}*/
 
 .fullPage .largexContainer {
     position: absolute;
-    width: 779px;
-    height: 252px;
+    width: 50vw;
+    height: 30vh;
     box-sizing: border-box;
-    column-count: 3;
-    column-gap: 6px;
     display: block;
     margin: -20% 0% 0% 25.75%;
     padding: 0px 1px 0px 1px;
 }
 
 .largexContainer .LxBox {
-    position: relative;
-    width: 252px;
-    height: 254px;
+    position: absolute;
+    width: 33%;
+    height: 100%;
     box-sizing: border-box;
+}
+#LxBox1 {
+
+}
+
+#LxBox2 {
+    margin: 0% 0% 0% 33%;
+}
+
+#LxBox3 {
+    margin: 0% 0% 0% 66%;
 }
 
 .LxBox .lRedXbox {
@@ -334,17 +376,22 @@
     height: 98%;
     box-sizing: border-box;
     background-image: url("../Images/bigx.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
+
 
 
 .fullPage .team1Container {
     position: absolute;
-    width: 350px;
-    height: 160px;
+    width: 15vw;
+    height: 20vh;
     box-sizing: border-box;
-    margin: 28% 0% 0% 5%;
+    margin: 53vh 0vw 0vh 4vw;
     font: white;
     text-align: center;
+    opacity: .9;
+
 }
 
 .team1Container div {
@@ -353,52 +400,50 @@
     width: 100%;
     display: block;
     text-align: center;
-    font: 22px Clarendon, sans-serif;
+    font: 3vh Clarendon, sans-serif;
     font-weight: bold;
-    font-size: 32px;
     color: white;
 }
 
 .team1Container .team1Name {
     position: absolute;
     width: 100%;
-    height: 40%;
-    top: 56%;
+    height: 30%;
+    top: 55%;
     box-sizing: border-box;
-    margin: 1% 0% 0% 0%;
-    line-height: 200%;
+    margin: 0% 0% 0% 0%;
+    line-height: 6vh;
     border-radius: 8px;
     background: black;
 }
 
 .team1Container .team1Total {
     position: absolute;
-    height: 90px;
-    width: 140px;
+    height: 50%;
+    width: 55%;
     box-sizing: border-box;
-    left: 30%;
+    left: 24%;
     border: 5px solid #282828;
     border-radius: 9px;
     display: block;
     text-align: center;
-    font: 32px Clarendon, sans-serif;
+    font: 7vh Clarendon, sans-serif;
     font-weight: bold;
-    font-size: 50px;
-    line-height: 150%;
+    line-height: 9vh;
     color: white;
     background: radial-gradient(circle, #3366cc 2%, #000099 80% );
 }
 
-
-
 .fullPage .team2Container {
     position: absolute;
-    width: 350px;
-    height: 160px;
+    width: 15vw;
+    height: 20vh;
     box-sizing: border-box;
-    margin: 28% 0% 0% 73%;
+    margin: 52vh 0vw 0vh 82vw;
     font: white;
     text-align: center;
+    opacity: .8;
+
 }
 
 .team2Container div {
@@ -407,7 +452,7 @@
     width: 100%;
     display: block;
     text-align: center;
-    font: 32px Clarendon, sans-serif;
+    font: 3vh Clarendon, sans-serif;
     font-weight: bold;
     color: white;
 }
@@ -415,30 +460,28 @@
 .team2Container .team2Name {
     position: absolute;
     width: 100%;
-    height: 40%;
-    top: 56%;
+    height: 30%;
+    top: 55%;
     box-sizing: border-box;
-    margin: 1% 0% 0% 0%;
-    line-height: 200%;
+    margin: 0% 0% 0% 0%;
+    line-height: 6vh;
     border-radius: 8px;
     background: black;
-    opacity: 0.8;
 }
 
 .team2Container .team2Total {
     position: absolute;
-    height: 90px;
-    width: 140px;
+    height: 50%;
+    width: 55%;
     box-sizing: border-box;
-    left: 30%;
+    left: 24%;
     border: 5px solid #282828;
     border-radius: 9px;
     display: block;
     text-align: center;
-    font: 32px Clarendon, sans-serif;
+    font: 8vh Clarendon, sans-serif;
     font-weight: bold;
-    font-size: 50px;
-    line-height: 150%;
+    line-height: 9vh;
     color: white;
     background: radial-gradient(circle, #3366cc 2%, #000099 80% );
 }
@@ -447,9 +490,9 @@
 /* Possible question box option here below */
 .fullPage .questionBox {
     position: absolute;
-    width: 1200px;
+    width: 100vw;
     height: 40px;
-    margin: 18% 0% 0% 12%;
+    margin: 20vh 0vw 0vh 0vw;
     line-height: 200%;
     border-radius: 8px;
     background: black;

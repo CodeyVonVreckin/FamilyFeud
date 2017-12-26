@@ -23,20 +23,14 @@
        <label style="color:yellow;">^^ Scan code to start the game ^^</label>        
     </div>
     <div class="circle"> </div>
-    <section class="smallxContainer" id="sXcontainer">
-        <div class="SxBox">
+    <div class="smallxContainer" id="sXcontainer">
             <div class="grayXbox" id="smallX1"> </div>
             @*<div class="redXbox"> </div>*@
-        </div>
-        <div class="SxBox">
             <div class="grayXbox" id="smallX2"> </div>
-            @*<div class="redXbox"> </div>*@
-        </div>
-        <div class="SxBox">
+            @*<div class="redXbox" id="smallX2"> </div>*@
             <div class="grayXbox" id="smallX3"> </div>
             @*<div class="redXbox"> </div>*@
-        </div>
-    </section>
+    </div>
     <div class="roundIndicator" id="roundNumber"> Round 0</div>
     <div class="roundScoreBox" id="roundScore"></div>
     <div class="team1Container">
@@ -48,7 +42,7 @@
         <div class="team2Total" id="teamTotal2">0</div>
     </div>
     <div class="resultBoard">
-        <section class="container">
+        <section class="container" id="container1">
             <div class="result" id="result1">
                 <div class="frontResult"><p id="frontResult1"></p></div>
                 <div class="backResult" id="backResult1"></div>
@@ -56,7 +50,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container" id="container2">
             <div class="result" id="result2">
                 <div class="frontResult"><p id="frontResult2"></p></div>
                 <div class="backResult" id="backResult2"></div>
@@ -64,7 +58,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container"id="container3">
             <div class="result" id="result3">
                 <div class="frontResult"><p id="frontResult3"></p></div>
                 <div class="backResult" id="backResult3"></div>
@@ -72,7 +66,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container" id="container4">
             <div class="result" id="result4">
                 <div class="frontResult"><p id="frontResult4"></p></div>
                 <div class="backResult" id="backResult4"></div>
@@ -80,7 +74,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container" id="container5">
             <div class="result" id="result5">
                 <div class="frontResult"><p id="frontResult5"></p></div>
                 <div class="backResult" id="backResult5"></div>
@@ -88,7 +82,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container" id="container6">
             <div class="result" id="result6">
                 <div class="frontResult"><p id="frontResult6"></p></div>
                 <div class="backResult" id="backResult6"></div>
@@ -96,7 +90,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container" id="container7">
             <div class="result" id="result7">
                 <div class="frontResult"><p id="frontResult7"></p></div>
                 <div class="backResult" id="backResult7"></div>
@@ -104,7 +98,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container" id="container8">
             <div class="result" id="result8">
                 <div class="frontResult"><p id="frontResult8"></p></div>
                 <div class="backResult" id="backResult8"></div>
@@ -113,17 +107,18 @@
         </section>
     </div>
     <section class="largexContainer">
-        <div class="LxBox">
+        <div class="LxBox" id="LxBox1">
             <div class="lRedXbox" id="firstWrong"></div>
         </div>
-        <div class="LxBox">
+        <div class="LxBox" id="LxBox2">
             <div class="lRedXbox" id="secondWrong"></div>
         </div>
-        <div class="LxBox">
+        <div class="LxBox" id="LxBox3">
             <div class="lRedXbox" id="thirdWrong"></div>
         </div>
     </section>
-    <section class="buttonBox">
+    @*Uneeded buttons once mobile integrations were added*@
+    @*<section class="buttonBox">
         <section class="buttons">
             <div class="awardTeam1" id="team1">
                 <button class="btn form-control" id="team1Button">+</button>
@@ -135,7 +130,7 @@
                 <button class="btn form-control" id="team2Button">+</button>
             </div>
         </section>
-    </section>
+    </section>*@
     <label class="questionBox">To start, get the Steve of the group to hit the next question button.</label>
 
 
