@@ -20,7 +20,8 @@
     <div id="QR" style="position:absolute; right:0%;">
        @Html.GenerateQrCode("http://feudwithfriendsnotfamily.com/FamilyFeud/SteveScreen?team1=" + Model.TeamOne + "&team2=" + Model.TeamTwo + "&channel=" + Model.Channel)
        <br />
-       <label style="color:yellow;">^^ Scan code to start the game ^^</label>        
+       <label style="color:yellow;">^^ Scan code to start the game ^^ </label>
+        <br/> <p style="color: yellow">@Model.Channel</p>      
     </div>
     <div class="circle"> </div>
     <div class="smallxContainer" id="sXcontainer">
@@ -231,10 +232,10 @@
    //     reconnect: function (res) { console.log("reconnected WHOE");}
    // });
 
-
+    
     //  NEXT
     function MakeQuestion() {
-        $.getJSON("../../Content/Questions/FamilyFeudQuestions.json", function (data) {
+        $.getJSON("http://feudwithfriendsnotfamily.com/Questions/FamilyFeudQuestions.json", function (data) {
             var alldata = data;
             var questions = Object.keys(data);
             //  randomizes the array of questions

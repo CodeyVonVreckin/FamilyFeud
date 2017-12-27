@@ -9,16 +9,16 @@
 
 .fullPage .question {
 	width: 94vw;
-	height: 10vh;
+	height: 7.5vh;
 	position: absolute;
 	box-sizing: border-box;
 	border-radius: 8px;
 	
-	margin-top: 1.5vh;
 	margin-left: 3vw;
 	padding: .5vh;
+    padding-left: 3vw;
 	
-	background-color: black;s
+	background-color: black;
 	opacity: 0.8;
 	
 	font: 2.5vh Clarendon, sans-serif;
@@ -34,7 +34,7 @@
 	box-sizing: border-box;
 	border: .1vw none white;
 	
-	margin-top: 12vh;
+	margin-top: 8vh;
 	padding-left: .5vh;
 }
 	.answersContainer .answersBox {
@@ -43,29 +43,29 @@
 		position: relative;
 		box-sizing: border-box;
 		border-bottom: 2px none white;
-
+        margin-left: 2.5vw;
 		margin-bottom: .5vh;
 		
 
 	}
 		.answersBox .aButtonsBox {
 			width: 15vw;
-			height: 8vh;
+			height: 7.5vh;
 			position: absolute;
 			box-sizing: border-box;
-			margin-top: .2vh;
-			border: .1vw none red;
+			/*margin-top: .2vh;*/
+			border: 1px none red;
 			
 		}
 			.aButtonsBox .aButtons {
 				width: 13vw;
-				height: 7vh;
+				height: 7.5vh;
 				box-sizing: border-box;
 				position: absolute;
 				border-radius: 8px;
 				border: .1vw none yellow;
 				background-color: #F8F8FF;
-				margin-top: 3.8%;
+
 				margin-left: 3.5%;
 				
 				font: 3vh Clarendon, sans-serif;
@@ -73,33 +73,33 @@
 			
 			.aButtonsBox .answers {
 				width: 75vw;
-				height: 8vh;
+				height: 7.5vh;
 				box-sizing: border-box;
 				position: absolute;
 				background-color: #00004d;
 				padding-left: 2vw;
-				margin-left: 15vw;
+				margin-left: 17vw;
+                /*margin-top: .25vh;*/
 				border-radius: 8px;
+                border: 1px none lime;
 				
 				font: 3vh Clarendon, sans-serif;
 				color: white;
-				font-style: bold;
-				line-height: 8.5vh;
+				font-weight: bold;
+				line-height: 8vh;
 				
 				
 			}
 .fullPage .otherButtonsBox {
 	width: 100vw;
-	height: 11vh;
+	height: 8vh;
 	position: absolute;
-	
-	border: 1px none yellow;
-	
-	margin-top: 85vh;
+	border: 1px none lime;
+	margin-top: 80vh;
 }
 	.otherButtonsBox .wrongButton{
 		width: 22vw;
-		height: 11vh;
+		height:8vh;
 		position: absolute;
 		margin-left: 2vw;
 		border-radius: 8px;
@@ -112,7 +112,7 @@
 	}
 	.otherButtonsBox .addToTeam1{
 		width: 22vw;
-		height: 11vh;
+		height: 8vh;
 		position: absolute;
 		margin-left: 26.4vw;
 		border-radius: 8px;
@@ -125,7 +125,7 @@
 	}
 		.otherButtonsBox .addToTeam2{
 		width: 22vw;
-		height: 11vh;
+		height: 8vh;
 		position: absolute;
 		margin-left: 51vw;
 		border-radius: 8px;
@@ -138,7 +138,7 @@
 	}
 		.otherButtonsBox .nextQuestion{
 		width: 22vw;
-		height: 11vh;
+		height: 8vh;
 		position: absolute;
 		margin-left: 76vw;
 		border-radius: 8px;
@@ -156,7 +156,7 @@
 	position: absolute;
 	box-sizing: border-box;
 	border-top: .5px dashed white;
-	margin-top: 97vh;
+	margin-top: 89vh;
 	
 	font: 1.8vh Clarendon, sans-serif;
 	color: white;
@@ -164,7 +164,10 @@
 	text-align: center;
 	line-height: 3vh;
 }
-	</style>
+
+.strike {
+    text-decoration: line-through;
+}
 
 
 	

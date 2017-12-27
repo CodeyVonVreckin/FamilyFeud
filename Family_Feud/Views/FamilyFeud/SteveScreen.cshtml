@@ -12,7 +12,7 @@
     @Scripts.Render("~/bundles/bootstrap")
 
     <link rel="stylesheet" href="SteveScreenc2.css">
-    <title>Steve Harvey's Screen 111111111111111111</title>
+    <title>Steve's Screen</title>
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>
 </head>
 <body class="fullPage">
@@ -128,6 +128,23 @@
         });
 
     });
+
+    $(".aButtons").on('click', function () {
+        var thisID = $(this).prop('id');
+        var num = thisID.substring(6, 7);
+        var target = $("#answers" + num).prop('id');
+        var answer = $("#answers" + num).text();
+        var result = ('<font color="#000066"> <i/> <b/>' + answer.strike());
+        //33 4d 66
+        console.log(thisID);
+        console.log(num);
+        console.log(target);
+        console.log(answer);
+        console.log(result);
+        document.getElementById(target).innerHTML = result;
+
+    });
+
     
     $(".wrongButton").on('click', function () {
 
