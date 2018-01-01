@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="boardStyle.css">
     <title>Main Family Feud App</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 </head>
 <body class="fullPage">
     <div id="QR" style="position:absolute; right:0%;">
@@ -139,10 +139,14 @@
 </html>
 <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.js"></script>
 <script type="text/javascript">
+    //test below
+    window.alert("@Model.Channel");
     //  want to store these in C#
     var SubKey = '@Model.SubKey';
     var PubKey = '@Model.PubKey';
     var myChannel = '@Model.Channel';
+
+    
 
     //  hide the box containers that hold the red Xs
     $(".lRedXbox").hide();
@@ -310,11 +314,11 @@
 
     function UpdateRound(roundCount) {
         if (roundCount == 1) {
-            $("#roundNumber").text('Round 2');
+            $("#roundNumber").text('Round 2: DOUBLE');
             roundCounter++;
         }
         else if (roundCount == 2) {
-            $("#roundNumber").text('Round 3');
+            $("#roundNumber").text('Round 3: TRIPPLE');
             roundCounter++;
         }
         else {

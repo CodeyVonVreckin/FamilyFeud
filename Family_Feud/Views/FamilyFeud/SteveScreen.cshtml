@@ -17,6 +17,7 @@
 </head>
 <body class="fullPage">
     <div id="questionBox" class="question">Click "Next Question" to start the game!! and agree that Codey sucks</div>
+    <button class="resetButton" id="rButton"></button>
     <div class="answersContainer">
         <div class="answersBox" >
             <div class="aButtonsBox">
@@ -117,6 +118,19 @@
             }            
         }
     })
+    //broken
+    $(".resetButton").on('click', function () {
+
+        pubnub.publish({
+            message: ["Wrong", wrongAnswersCount],
+            channel: myChannel
+        });
+        if (wrongAnswersCount < 4) {
+            wrongAnswersCount++;
+        }
+    });
+
+
 
     $(".aButtons").on('click', function () {
         var thisID = $(this).prop('id');
@@ -129,6 +143,7 @@
 
     });
 
+    // changes font color and adds strikethrough to answers that have been clicked
     $(".aButtons").on('click', function () {
         var thisID = $(this).prop('id');
         var num = thisID.substring(6, 7);
@@ -145,6 +160,14 @@
 
     });
 
+    //broken
+    $(".questionBox").on('click', function () {
+        pubnub.publish({
+            message: ["WrongShowdown", wrongAnswersCount],
+            channel: myChannel
+        });
+        wrongAnswersCount = 4;
+    });
     
     $(".wrongButton").on('click', function () {
 

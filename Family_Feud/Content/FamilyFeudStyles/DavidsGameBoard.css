@@ -8,7 +8,7 @@
     height: 100vh;
     box-sizing: border-box;
     /*^^^ testing take out when done^^^^ */
-    border: 2px none lime;
+    /*border: 2px solid lime;*/
     /*^^^ testing take out when done^^^^ */
     /*gradient animated background code*/
     background: linear-gradient(291deg, #010f7f, #010525, #00004d);
@@ -61,26 +61,30 @@
 }
 
 .fullPage .circle {
-    position: absolute;
-    width: 99vw;
-    height: 100vh;
-    margin-top: 2.7vh;
+    position: fixed;
+    width: 100vw;
+    height: 92.5vh;
+    margin-top: 1.5vh;
     opacity: 0.65;
     background-image: url("../Images/Untitled4.png");
-    background-size: contain;
+    background-size: 69vw 100vh;
     background-repeat: no-repeat;
-    background-position: 74%; 
-    border: 2px none yellow;
+    /*background-position: 68.5%;*/
+    background-position-x: 64%;
+    background-position-y: 0vh;
+    /*border: 2px solid yellow;*/
 }
 
 .fullPage .smallxContainer {
     position: absolute;
-    width: 6.9vw;
-    height: 4vh;
+    width: 7%;
+    height: 4%;
     box-sizing: border-box;
-    margin: 20.8vh 0vw 0vh 70vw;
+    margin: 18.5vh 0% 0% 66vw;
 
     column-count: 3;
+
+    border: 1px none red;
 }
 
 #smallX1 {
@@ -116,29 +120,31 @@
 
 .fullPage .roundIndicator {
     position: absolute;
-    width: 8vw;
-    height: 4vh;
+    width: 12%;
+    height: 4%;
     box-sizing: border-box;
-    margin: 20.8vh 0vw 0vh 25vw;
-    padding-top: .1vh;
+    margin: 18.5vh 0% 0% 29%;
+    padding-top: .1%;
     border-radius: 7px;
     background: black;
     display: block;
     text-align: center;
-    font: 3vh Clarendon, sans-serif;
+    font: 2.3vh Clarendon, sans-serif;
     font-weight: bold;
     color: white;
     font-stretch: condensed;
-    opacity: .9
+    opacity: .9;
+    border: 1px none yellow;
+    line-height: 3.2vh;
 }
 /* Class that creates a score box that shows how many points were aquired per round */
 .fullPage .roundScoreBox {
     position: relative;
-    height: 16vh;
+    height: 14vh;
     width: 14vw;
     box-sizing: border-box;
     left: 44vw;
-    top: 6%;
+    top: 4vh;
     border: 5px solid #282828;
     border-radius: 9px;
     display: block;
@@ -146,7 +152,7 @@
     font: 10vh Clarendon, sans-serif;
     font-weight: bold;
     color: white;
-    line-height: 15vh;
+    line-height: 12vh;
     background: radial-gradient(circle, #3366cc 2%, #000099 80% );
 }
 
@@ -156,13 +162,13 @@
 /* .resultBoard creates the overall container that holds all of the individual result boxes. */
 .fullPage .resultBoard {
     position: relative;
-    width: 52vw;
-    height: 45vh;
+    width: 45.5vw;
+    height: 44vh;
     column-count: 2;
     box-sizing: border-box;
-    margin: 9vh 0vw 0vh 25vw;
+    margin: 9vh 0% 0% 28.2vw;
     padding-top: .5%;
-    border: 7px solid #282828;
+    border: .8vh solid #282828;
     /*border: 1px solid lime;*/
     border-radius: 7px;
     background: black;
@@ -173,36 +179,39 @@
 /* .container is the invisible box that holds the front result box and the back result box. */
  .resultBoard .container {
     position: absolute;
-    width: 48%;
-    height: 23%;
+    width: 21.5vw;
+    height: 9.8vh;
     box-sizing: border-box;
-    /*border: .2vh solid black;*/
+    border: .2vh none lime;
     -webkit-perspective: 800px;
     perspective: 800px;
 }
 #container1 {
-    margin: 0% 0% 0% 1%;
+    margin: 0% 0% 0% .5vw;
 }
- #container2 {
-     margin: 10.5% 0% 0% 1%;
- }
+#container2 {
+    /*margin: 10.5% 0% 0% 1%;*/
+    margin: 10.3vh 0% 0% .5vw;
+}
 #container3 {
-    margin: 21% 0% 0% 1%;
+    /*margin: 21% 0% 0% 1%;*/
+    margin: 20.8vh 0% 0% .5vw;
 }
 #container4 {
-    margin: 31.5% 0% 0% 1%;
+    /*margin: 31.5% 0% 0% .5vw;*/
+    margin: 31.2vh 0% 0% .5vw;
 }
 #container5 {
-    margin: 0% 0% 0% 50.5%;
+    margin: 0vh 0% 0% 50.5%;
 }
 #container6 {
-    margin: 10.5% 0% 0% 50.5%;
+    margin: 10.3vh 0% 0% 50.5%;
 }
 #container7 {
-    margin: 21% 0% 0% 50.5%;
+    margin: 20.8vh 0% 0% 50.5%;
 }
 #container8 {
-    margin: 31.5% 0% 0% 50.5%;
+    margin: 31.2vh 0% 0% 50.5%;
 }
     /* .result is the parent class to the front result box and the back result box. 
 			This is needed because both the front and back result boxes share a lot of characteristics. */
@@ -211,7 +220,7 @@
     width: 100%;
     height: 98%;
     box-sizing: border-box;
-    border: 2px inset white;
+    border: .5vh inset white;
     -webkit-transition: -webkit-transform 0.9s;
     transition: transform 0.9s;
     -webkit-transform-style: preserve-3d;
@@ -264,7 +273,7 @@
     .result .backResult {
         width: 80%;
         box-sizing: border-box;
-        border: 3px inset white;
+        border: .5vh inset white;
         font-size: 3vh;
         text-align: center;
         display: block;
@@ -280,7 +289,7 @@
         box-sizing: border-box;
         font-size: 6vh;
         line-height: 8vh;
-        border: 3px inset white;
+        border: .5vh inset white;
         background: radial-gradient(circle, #0000CD 20%, #000080 70% );
         -webkit-transform: rotateX( 180deg );
         transform: rotateX( 180deg );
@@ -489,15 +498,15 @@
 .fullPage .questionBox {
     position: absolute;
     width: 100vw;
-    height: 40px;
-    margin: 20vh 0vw 0vh 0vw;
+    height: 5vh;
+    margin: 25vh 0vw 0vh 0vw;
     line-height: 200%;
     border-radius: 8px;
     background: black;
     opacity: 0.8;
     display: block;
     text-align: center;
-    font: 32px Clarendon, sans-serif;
+    font: 4vh Clarendon, sans-serif;
     font-weight: bold;
     color: white;
 }

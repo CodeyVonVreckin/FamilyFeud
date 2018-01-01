@@ -64,10 +64,23 @@
     $("#startButton").on('click', function () {
         var team1 = $("#team1").val();
         var team2 = $("#team2").val();
+        var i = 0;
+        var team1Length = team1.length;
+        var team2Length = team2.length;
+        //replaces spaces with _  in team names to not break url
+        for (i; i < team1Length; i++) {
+            team1 = team1.replace(" ", "_");
+            for (i = 0; i < team2Length; i++) {
+                team2 = team2.replace(" ", "_");
+            }
+        }
+
 
         window.location.href = "/FamilyFeud/DavidsGameBoard?team1=" + team1 + "&team2=" + team2;
 
     });
+
+
 
     ////  appends 5 player rows to both of the team tables
     //for (var i = 0; i < 5; i++){

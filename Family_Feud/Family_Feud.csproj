@@ -175,6 +175,7 @@
     <Content Include="Content\Images\bigx.png" />
     <Content Include="Content\Images\Black_FamilyFeudPic.png" />
     <Content Include="Content\Images\FamilyFeudPic.jpg" />
+    <Content Include="Content\Images\reset.png" />
     <Content Include="Content\Images\smallxGray2.png" />
     <Content Include="Content\Images\smallxRed2.png" />
     <Content Include="Content\Images\Untitled4.png" />
@@ -183,6 +184,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\background.jpg" />
+    <Content Include="Images\bigx.png" />
+    <Content Include="Images\Black_FamilyFeudPic.png" />
+    <Content Include="Images\FamilyFeudPic.jpg" />
+    <Content Include="Images\reset.png" />
+    <Content Include="Images\smallxGray2.png" />
+    <Content Include="Images\smallxRed2.png" />
+    <Content Include="Images\Untitled4.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

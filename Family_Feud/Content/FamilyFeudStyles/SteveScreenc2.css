@@ -8,7 +8,7 @@
 }
 
 .fullPage .question {
-	width: 94vw;
+	width: 91.5vw;
 	height: 7.5vh;
 	position: absolute;
 	box-sizing: border-box;
@@ -24,8 +24,26 @@
 	font: 2.5vh Clarendon, sans-serif;
 	color: white;
 	display: block;
-	
 }
+
+    .fullPage .resetButton {
+        width: 2.7vw;
+        height: 5vh;
+        position: absolute;
+        box-sizing: border-box;
+        margin-top: 1vh;
+        margin-left: 95vw;
+        background-color: #000066;
+        background-image: url("../Images/reset.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        text-align: center;
+        color: white;
+        font: 2vw Clarendon, sans-serif;
+        color: white;
+        display: block;
+        border: 1px none white;
+    }
 
 .fullPage .answersContainer {
 	width: 100vw;
